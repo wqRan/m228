@@ -7,7 +7,8 @@
     .newList{
       width: 100%;
       .pro-list{
-        height: 1.39rem;
+        margin-top: 5px;
+        // height: 2.0rem;
         padding:.1rem .15rem;
         dt{
           float: left;
@@ -37,17 +38,18 @@
               background-size: 50px auto;
             }
             &:nth-of-type(2) .icon{
-              @include list-icon(-3px -861px);
+              @include list-icon(-2px -896px);
               background-size: 50px auto;
             }  
             &:nth-of-type(3) .icon{
-              @include list-icon(-2px -896px);
+              @include list-icon(-3px -861px);
               background-size: 50px auto;
             }  
             .state{
               float: right;
               background-color: #eb414e;
               border-radius: 0.05rem;
+              padding: 0 4px;
               font-size: .12rem;
               a{color: #fff;}
             }
@@ -62,6 +64,68 @@
             white-space: initial;
             a{color: #2d2d2b;}
         }
+        dd.tips{
+          margin: 6px 0;
+          font-size: 12px;
+          -webkit-line-clamp:2;
+          -webkit-box-orient:vertical;
+          display:-webkit-box;
+          white-space:normal;
+          padding: 5px 0 ;
+          border-top: 1px solid #d7d9d8;
+          border-bottom: 1px solid #d7d9d8;
+        }
       }
     }
   }
+
+
+.sitebg{
+  background:#f0f0f0;
+}
+.pro-list1{
+    background: #fff;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    padding:.1rem .15rem;
+    margin-bottom: 8px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  dt{
+    width: 1.46rem;
+    height: .96rem;
+    float: left;
+    img{
+      width: 1.22rem;
+      height: .79rem;
+    }
+  }
+  dd{
+    color: #666;
+    position: relative;
+    margin-top: 5px;
+    line-height: 28px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .pro-tit{
+    font-size: 16px;
+    color: #000;
+    font-weight: bold;
+  }
+  .icon {
+      float: left;
+      display: block;
+      width: .18rem;
+      height: .18rem;
+      margin-top: 0.06rem;
+      margin-right: 0.03rem;
+      background: url(../images/icon-cg.png) no-repeat;
+      background-size: 15px auto;
+    }
+}
+
+
+
+

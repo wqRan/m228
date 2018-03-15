@@ -154,10 +154,13 @@
           border-radius: 3.6px;
           padding: .05rem .3rem;
           text-align: center;
-          color: #fff;
-          margin: .096rem .12rem .12rem;
-          background: #eb414a;
+          color: #000;
+          margin: .096rem .12rem .12rem;        
         }
+        .onactive{
+            background: #eb414a;
+            color:#fff;
+          }
       }
     }
   }

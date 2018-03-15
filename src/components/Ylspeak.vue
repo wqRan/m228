@@ -1,5 +1,5 @@
 <template lang="html">
-<div class="ylspeak">
+<div>
 		
 	<div class="loginHead">
 	<div class="head-l">
