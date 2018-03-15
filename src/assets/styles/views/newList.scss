@@ -1,0 +1,67 @@
+  // -------newList
+  @mixin list-icon($arguments:0 0){
+      background: url(../images/mini-icon.png) no-repeat nth($arguments,1) nth($arguments,2); 
+  }
+  #newList{
+    width: 100%;
+    .newList{
+      width: 100%;
+      .pro-list{
+        height: 1.39rem;
+        padding:.1rem .15rem;
+        dt{
+          float: left;
+          width: 90px;
+          height: 120px;
+          margin-right: 12px;
+          overflow: hidden;
+          img{width: 100%;height: 100%;}
+        }
+        dd {
+            color: #666;
+            position: relative;
+            margin-top: 5px;
+            line-height: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            .icon {
+              float: left;
+              display: block;
+              width: .2rem;
+              height: .22rem;
+              margin-top: 0.02rem;
+              margin-right: 0.03rem;
+              @include list-icon(-2px -824px);
+              background-size: 50px auto;
+            }
+            &:nth-of-type(2) .icon{
+              @include list-icon(-3px -861px);
+              background-size: 50px auto;
+            }  
+            &:nth-of-type(3) .icon{
+              @include list-icon(-2px -896px);
+              background-size: 50px auto;
+            }  
+            .state{
+              float: right;
+              background-color: #eb414e;
+              border-radius: 0.05rem;
+              font-size: .12rem;
+              a{color: #fff;}
+            }
+          
+        }
+        dd.pro-tit {
+            padding: 0;
+            margin: 0px 0px 8px;
+            
+            line-height: 22px;
+            height: 45px;
+            white-space: initial;
+            a{color: #2d2d2b;}
+        }
+      }
+    }
+  }
