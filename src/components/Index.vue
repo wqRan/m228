@@ -7,7 +7,7 @@
 	  <h1>永乐票务</h1>        
 	</header>  
 	<!-- ...... search ...... -->          
-	<div id="js_search" class="sear-comm">
+	<div id="js_search" class="sear-comm" style="margin-bottom:.1rem;">
 		<div class="sear-all">
 			<form action="//m.228.cn/search.html" method="get" id="currentSearchForm">
 				<span class="sear-m"> 
@@ -18,19 +18,9 @@
 		</div>
 	</div>
 	<!-- ....... banner ............ -->
-	 	<div class="swiper-container">
-		  <div class="swiper-wrapper">
-		    <div class="swiper-slide"><img src="../assets/images/banner1.jpg" alt=""></div>
-		    <div class="swiper-slide"><img src="../assets/images/banner2.jpg" alt=""></div>
-		    <div class="swiper-slide"><img src="../assets/images/banner3.jpg" alt=""></div>
-		    <div class="swiper-slide"><img src="../assets/images/banner4.jpg" alt=""></div>
-		    <div class="swiper-slide"><img src="../assets/images/banner5.jpg" alt=""></div>
-		    <div class="swiper-slide"><img src="../assets/images/banner6.jpg" alt=""></div>
-		    <div class="swiper-slide"><img src="../assets/images/banner7.jpg" alt=""></div>
-		    <div class="swiper-slide"><img src="../assets/images/banner8.jpg" alt=""></div>
-		  </div>
-		  <div class="swiper-pagination"></div>
-		</div>
+	
+		  <banner></banner>
+	
 	
 
 	<!-- ........ nav ....... -->
@@ -39,8 +29,9 @@
             <li class="nav-item1"><router-link to="/classify">全部分类</router-link></li>
             <li class="nav-item2"><router-link to="/login">用户中心</router-link></li>
             <li class="nav-item3"><router-link to="/ylSpeak">永乐说戏</router-link></li>
-            <li class="nav-item4"><router-link to="/javascript:;">专题活动</router-link></li>
-            <li class="nav-item5"><router-link to="/javascript:;">在线验票</router-link></li>
+            <li class="nav-item4"><router-link to="/activities">专题活动</router-link></li>
+           <li class="nav-item5"><router-link to="/verification">在线验票</router-link></li>
+           
         </ul>
     </div>
     <!-- ....... pic1 ........ -->
@@ -113,10 +104,37 @@
 	    
 	</div>
 	<!-- .......fix图标 -->
-	<div class="index-le">
-        <a class="index-le-l"></a>
-    </div>
+	<div id="Navigation">
+		<div class="index-le" >
+	        <a class="index-le-l"></a>
+	    </div>
+	    <div class="index_detail">
+	    	<a class="index_detail1"></a>
+	    	<a class="index_detail2"></a>
+	    	<a class="index_detail3"></a>
+	    	<a class="index_detail4"></a>
+	    	<a class="index_detail5"></a>
+	    	<a class="index_detail6"></a>
+	    </div>
+	</div>
 </div>
-
-
 </template>
+<script>
+   
+	import Banner from './Banner.vue'
+	export default {
+
+	  components:{
+	  	Banner
+	  }/*,
+	  data:{
+          isshow:false
+        },
+       methods:{
+         showhide:function(){
+         	console.log(this.isshow)
+            this.isshow = !this.isshow;
+          }
+        }*/
+	}
+</script>

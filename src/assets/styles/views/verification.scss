@@ -1,0 +1,62 @@
+.content{
+	width:100%;
+	height:100%;
+	.check_area{
+	width:100%;
+	height:4.2rem;
+	background-color:#fff;
+	
+		.input_area{
+			padding:.12rem;
+			color:#666;
+			@include flexbox();
+			@include flex-direction(column);
+			span,p{
+				padding:.05rem;
+				line-height:.18rem;
+				font-size:.12rem;
+			}
+			.input-box{
+				@include flexbox();
+				height:.3rem;
+				a{
+					width:.8rem;
+					background:#eb414b;
+					color:#fff;
+					display:block;
+					text-align:center;
+					line-height:.3rem;
+
+				}
+				input{
+					@include flex(1);
+				}
+			}
+
+		}
+		.hrbox{
+			width:100%;
+			height:.06rem;
+			background:#f4f4f4;
+			color:#666;
+
+		}
+		.check_info{
+			line-height:.3rem;
+			padding:.1rem .1rem .15rem;
+			.red{
+				color:#cc0001;
+			}
+			span{
+				display:block;
+				font-size:.12rem;
+				/* line-height:.2rem; */
+			}
+			img{
+				width:100%;
+				height:1.4rem;
+			}
+
+		}
+	}
+}
