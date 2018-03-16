@@ -27,7 +27,7 @@
 	<div class="index-nav index-nav-20">
         <ul class="navBtn">
             <li class="nav-item1"><router-link to="/classify">全部分类</router-link></li>
-            <li class="nav-item2"><router-link to="/login">用户中心</router-link></li>
+            <li class="nav-item2"><router-link to="/mine">用户中心</router-link></li>
             <li class="nav-item3"><router-link to="/ylSpeak">永乐说戏</router-link></li>
             <li class="nav-item4"><router-link to="/activities">专题活动</router-link></li>
            <li class="nav-item5"><router-link to="/verification">在线验票</router-link></li>
@@ -48,13 +48,17 @@
 
 	<div class="index-pronav" id="JindexPronav">
         <ul id="Jpronav">
-            <li><a rel="1" class="on" href="javascript:;">推荐</a></li>
-            <li><a rel="2" href="javascript:;">场馆</a></li>
+            <li>
+            	<router-link to="/recommend" active-class="onactive" exact >推荐</router-link></li>
+            <li><router-link to="/site" active-class="onactive">场馆</router-link></li>
         </ul>
     </div>
 	<!-- ........ newList.............. -->
 	<div id="newList">
-		<div class="newList"></div>
+		<div class="newList" id="newListitem">
+			<router-view></router-view>
+		</div>
+		
 	</div>
 	<!-- .........foot-icon.............. -->
 	<div class="foot-icon">
@@ -70,39 +74,8 @@
 	    </ul>
 	</div>
 	<!-- ......... foot ......... -->
-	<div class="foot">
-		<!-- one-download -->
-		<div class="foot-down">
-		   	<div class="foot-down-r"><a href="javascript:;">立刻下载</a></div>
-		  	<div class="foot-down-l">
-		  		<div class="logo-down"></div>
-		  		<div class="yl-txt">
-		  			<p class="yl-txt1">永乐票务APP</p>
-		  			<p class="gray">随时抢票 惊喜不断</p>
-		  		</div>
-		  	</div>
-		</div>
-		<!-- two-preson -->
-		<div class="foot-person">
-	        <a href="javascript:;" class="pro-con-h2 fl">个人中心</a>
-	        <a href="javascript:;" class="Jupto fr"></a>
-	    </div>
-	    <!-- three -->
-	    <p class="foterbox-p">
-	        <span>客服电话：4006-228-228</span>
-	    </p>
-	    <ul class="foterbox-ul">
-	        <li><a href="javascript:;">首页</a></li> 
-	        <li><a href="javascript:;">最新资讯</a></li>    
-	        <li><a href="javascript:;">合作招商</a></li>
-	        <li><a href="javascript:;">联系我们</a></li>
-	    </ul>
-	    <p class="foterbox-pbot">
-	        ©永乐票务
-	    </p>
-	    <!--  -->
-	    
-	</div>
+	<foot-cmpt></foot-cmpt>
+	
 	<!-- .......fix图标 -->
 	<div id="Navigation">
 		<div class="index-le" v-on:click="showhide">
@@ -119,24 +92,28 @@
 	</div>
 </div>
 </template>
+
 <script>
    
-	import Banner from './Banner.vue'
-	export default {
+import Banner from './Banner.vue'
+import FootCmpt from './Foot'
 
-	  components:{
-	  	Banner
+export default {
+
+  components:{
+  	Banner,
+  	FootCmpt
+  	},
+	data: () => {
+	    return {
+	      isshow:false
+	    }
 	  },
-		data: () => {
-		    return {
-		      isshow:false
-		    }
-		  },
-       methods:{
-         showhide:function(){
-         	
-            this.isshow = !this.isshow;
-          }
-        }
-	}
+   methods:{
+     showhide:function(){
+     	
+        this.isshow = !this.isshow;
+      }
+    }
+}
 </script>

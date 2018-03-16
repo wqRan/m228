@@ -12,7 +12,8 @@
 				@include flex(1);
 				text-align:center;
 				line-height:.63rem;
-				border:.005rem solid #ddd;
+				/* border:.005rem solid #ddd; */
+				@include border();
 			}
 		}
 	}

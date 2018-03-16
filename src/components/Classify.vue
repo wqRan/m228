@@ -11,9 +11,9 @@
 		<div id="classifyList">
 			<div class="titlelist">
 				<ul class="">
-					<li>全国</li>
-					<li>全部分类</li>
-					<li>全部时间</li>
+					<li>全国<span class="yo-ico">&#xf031;</span></li>
+					<li>全部分类<span class="yo-ico">&#xf031;</span></li>
+					<li>全部时间<span class="yo-ico">&#xf031;</span></li>
 				</ul>	
 			</div>
 			
@@ -22,3 +22,4 @@
 	
 </template>
 <style></style>
+

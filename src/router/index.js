@@ -6,10 +6,15 @@ import Login from '@/components/Login'
 import Resgiter from '@/components/Resgiter'
 import Ylspeak from '@/components/Ylspeak'
 import Classify from '@/components/Classify'
+
+import NewsList from '@/components/NewsList'
+import Site from '@/components/Site'
+
 import Activities from '@/components/Activities'
 import Verification from '@/components/Verification'
 import Mine from '@/components/Mine'
 import Banner from '@/components/Banner'
+
 
 Vue.use(Router)
 
@@ -19,7 +24,18 @@ export default new Router({
     {
       path: '/',
       name: 'indexcmpt',
-      component: IndexCmpt
+      redirect: '/recommend',
+      component: IndexCmpt,
+      children:[
+      {
+        path:'recommend',
+        component:NewsList
+      },
+      {
+        path:'site',
+        component:Site
+      }
+      ]
     },
     {
       path: '/login',
@@ -35,7 +51,7 @@ export default new Router({
       path: '/ylspeak',
       name: 'ylspeak',
       component: Ylspeak
-    },
+    }, 
     {
       path: '/classify',
       name: 'classify',
@@ -50,13 +66,17 @@ export default new Router({
       path: '/verification',
       name: 'verification',
       component: Verification
-    }
+    },
     
-    /*{
+    {
       path: '/mine',
       name: 'mine',
       component: Mine
-    },*/
+     /* beforeEnter:(to,from,next)=>{
+        console.log(1)
+        next()
+      }*/
+    },
    /* {
       path: '/banner',
       name: 'banner',

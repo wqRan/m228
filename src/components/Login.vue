@@ -10,13 +10,13 @@
 	</div>
 	<!-- input -->
 	<div class="usr-box">
-	    <input name="loginname" type="text" class="con-ipt icon icon1" placeholder="手机号 / 邮箱地址" tabindex="1">
-	    <input name="loginpwd" type="password" class="con-ipt icon icon2" placeholder="密码" tabindex="2">
+	    <input name="loginname" type="text" class="con-ipt icon icon1" placeholder="手机号 / 邮箱地址" tabindex="1" v-model="username">
+	    <input name="loginpwd" type="password" class="con-ipt icon icon2" placeholder="密码" tabindex="2" v-model="password">
 	    <span class="showBtn">
 	    	<input id="showpwd" type="checkbox" value="1">
 	    	<font class="showFont" value="1">显示密码</font>
 	    </span>
-	    <h2 class="loginBtn">登录</h2>
+	    <h2 class="loginBtn" @click="dologin">登录</h2>
 		<div class="user-box1">
 		    <span><input name="freeloginbtn" type="checkbox" value="1" checked="checked"> 两周内免登录</span>
 		    <router-link to="/resgiter" class="resgiter">免费注册</router-link>
@@ -37,3 +37,35 @@
 		</div>
 </div>
 </template>
+<script>
+import axios from 'axios'
+	export default {
+		data: ()=>{
+			return{
+				username:'',
+				password:'',
+			}
+		},
+		methods:{
+			dologin(){
+				axios({
+					method:'post',
+					url:'/api/users/signin',
+					data:{
+						username:this.username,
+						password:this.password,
+					}
+				})
+				.then((result)=>{
+					/*console.log(result.data.data.success)*/
+					if(result.data.data.success){
+						this.$router.name='mine'
+						console.log(this.username,this.password)
+					}else{
+						console.log("登录失败")
+					}
+				})
+			}
+		}
+	}
+</script>
