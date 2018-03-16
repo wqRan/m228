@@ -6,9 +6,6 @@
 	</div>	
 </template>
 
-
-
-
 <script>
 
 import IndexCmpt from './components/Index.vue'
