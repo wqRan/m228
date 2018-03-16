@@ -62,6 +62,9 @@
 	</div>
 	<!-- .........foot-icon.............. -->
 	<div class="foot-icon">
+	<!-- classify查看更多演出 -->
+	<h1 class="moreshows"><router-link to="/classify">查看更多全国演出</router-link></h1>
+
 	    <ul>
 	        <li class="foot-item1"><a href="javascript:;">演唱会</a></li>
 	        <li class="foot-item2"><a href="javascript:;">话剧舞台剧</a></li>
