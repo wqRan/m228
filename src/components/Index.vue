@@ -105,10 +105,10 @@
 	</div>
 	<!-- .......fix图标 -->
 	<div id="Navigation">
-		<div class="index-le" >
+		<div class="index-le" v-on:click="showhide">
 	        <a class="index-le-l"></a>
 	    </div>
-	    <div class="index_detail">
+	    <div class="index_detail" v-show="isshow">
 	    	<a class="index_detail1"></a>
 	    	<a class="index_detail2"></a>
 	    	<a class="index_detail3"></a>
@@ -126,15 +126,17 @@
 
 	  components:{
 	  	Banner
-	  }/*,
-	  data:{
-          isshow:false
-        },
+	  },
+		data: () => {
+		    return {
+		      isshow:false
+		    }
+		  },
        methods:{
          showhide:function(){
-         	console.log(this.isshow)
+         	
             this.isshow = !this.isshow;
           }
-        }*/
+        }
 	}
 </script>
