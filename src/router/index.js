@@ -15,6 +15,7 @@ import Verification from '@/components/Verification'
 import Mine from '@/components/Mine'
 import Banner from '@/components/Banner'
 import City from '@/components/City'
+import Detail from '@/components/Detail'
 
 Vue.use(Router)
 
@@ -29,7 +30,7 @@ export default new Router({
       children:[
       {
         path:'recommend',
-        component:NewsList
+        component:NewsList,
       },
       {
         path:'site',
@@ -81,6 +82,11 @@ export default new Router({
       path: '/city',
       name: 'city',
       component: City
+    },
+    {
+      path: '/detail',
+      name: 'detail',
+      component: Detail
     }
   ]
 })

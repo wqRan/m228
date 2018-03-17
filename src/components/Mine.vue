@@ -16,7 +16,7 @@
 							<img src="https://s2m.228.cn/resources/images/person-per.png">
 						</div>
 						<div class="usernickname">
-							<span>Mickyio</span>
+							<span>{{username}}</span>
 						</div>
 					</div>
 					<div class="set">
@@ -102,38 +102,34 @@
 </template>
 
 <script>
+
 import axios from 'axios'
 import FootCmpt from './Foot'
 import "../assets/public/web-storage-cache.min.js"
-//const wsCache = new WebStorageCache()
-//console.log(wsCache)
-	export default{
-		components:{
-  		FootCmpt
-  	},
-		/*beforeRouteEnter (to, from, next) {
-    		console.log('beforeRouteEnter')
-    		const wsCache = new WebStorageCache()
-					
-    		axios({
-				url:'api/users/issignin',
-				header:{
-					'X-Access-Token': wsCache.get('token')
-				}
-			})
-			.then((result)=>{
-				if(result.data.data.issignin){
-					 this.$router.push("mine")
-					 next()
-				}else{
-					console.log(0)
-					 this.$router.push("login")
-					 next()
-				}
-			})
-			
-		  }*/
+import Login from '@/components/Login'
 
+	export default{
+
+	components:{
+		FootCmpt,
+		Login
+  	},
+	data: ()=>{
+		return{
+			username:''
+			
+		}
+	},
+	mounted(){
+		let routerParams=this.$route.params.dataObj
+		this.username=routerParams
+		console.log(this.$route.params)
+	},
 		
+	watch:{
+		'$route':'getParams'
+	}
+
+	
 	}
 </script>
