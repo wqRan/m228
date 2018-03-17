@@ -1,0 +1,39 @@
+.citys{
+	width:100%;
+	height:100%;
+	h4{
+		line-height: .35rem;
+	    padding-left: .2rem;
+	    font-size: .14rem;
+	    font-family: "System San Francisco";
+	    color: #999;
+		}
+	p{
+		height: .4rem;
+	    line-height: .4rem;
+	    font-size: .14rem;
+	    padding: 0 .2rem;
+	    background: #fff;
+	    font-family: "System San Francisco";
+		}
+	ul{
+		background: #fff;
+	    width: 100%;
+	    overflow: hidden;
+	    @include flexbox();
+	    @include flex-wrap(wrap);
+	    li{
+	    	
+		    height: .4rem;
+		    line-height: .4rem;
+		    width: calc(( 100% / 3) - 0.66px);
+		    @include border(0 1px 1px 0)
+		    
+		    font-size: .14rem;
+		    font-family: "System San Francisco";
+		    text-align: center;
+		   
+	    }
+	}
+	
+}

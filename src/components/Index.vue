@@ -3,7 +3,8 @@
 <div class="container">
 	<!-- ...... header ...... -->
 	<header>
-	  <a id="ylCity" href="javascript:;">全国</a>   
+		<router-link to="/city" id="ylCity">全国</router-link>
+	 <!--  <a id="ylCity" href="javascript:;">全国</a>  -->  
 	  <h1>永乐票务</h1>        
 	</header>  
 	<!-- ...... search ...... -->          
