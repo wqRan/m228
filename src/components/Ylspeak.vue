@@ -17,6 +17,7 @@
 </template>
 <script>
 
+	import FootCmpt from './Foot'
 	import Banner from './Banner.vue'
 	export default {
 	  components:{
