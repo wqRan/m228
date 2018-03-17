@@ -105,7 +105,7 @@ import axios from 'axios'
 /*import wsCache from '../assets/public/web-storage-cache.min.js'*/
 import wsCache from 'web-storage-cache'
 Vue.use(VueRouter) 
-
+Vue.prototype.$wsCache = new wsCache()
 export default {
  
   components:{
@@ -113,34 +113,17 @@ export default {
   	FootCmpt,
   	Navigation
   	},
-  	/*'/api/users/issignin'watch:{
-  		'$route':function(to,from){
-  			let token = $wsCache.get('token');
-  			if(to.matched.some(record => record.meta.requiresAuth) && (!token || token === null)){
-  				console.log(1)
-  				next({
-  					path:'/login',
-  					query:{redirect: to.fullPath}
-  				})
-  			}else{
-  				console.log(0)
-  				next()
-  			}
-  		}
-  	}*/
-
-  /*mounted(){
-  	Vue.prototype.$wsCache = new wsCache()；
+  mounted(){
+  	
   	axios({
   		url:'/api/users/issignin',
   		headers:{'X-Access-Token': $wsCache.get('token')},
   	})
   	.then((result)=>{
   		console.log(result)
-  		
+  		/*console.log("已登录")*/
   	})
-  }*/
- 
+  }
 	
 }
 </script>
