@@ -41,7 +41,17 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	
-
+	<!-- ......... foot ......... -->
+	<foot-cmpt></foot-cmpt>
+</div>
 </template>
+
+<script>
+import FootCmpt from './Foot'	
+ export default {
+ 	components:{
+  		FootCmpt
+  	},
+ }
+
+</script>

@@ -14,7 +14,7 @@ import Activities from '@/components/Activities'
 import Verification from '@/components/Verification'
 import Mine from '@/components/Mine'
 import Banner from '@/components/Banner'
-
+import City from '@/components/City'
 
 Vue.use(Router)
 
@@ -66,17 +66,21 @@ export default new Router({
       path: '/verification',
       name: 'verification',
       component: Verification
-    }
+    },
     
-    /*{
+    {
       path: '/mine',
       name: 'mine',
       component: Mine
-    },*/
-   /* {
-      path: '/banner',
-      name: 'banner',
-      component: Banner
-    }*/
+     /* beforeEnter:(to,from,next)=>{
+        console.log(1)
+        next()
+      }*/
+    },
+     {
+      path: '/city',
+      name: 'city',
+      component: City
+    }
   ]
 })

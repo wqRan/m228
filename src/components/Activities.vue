@@ -16,10 +16,9 @@
 				</div>
 			</div>
 		</div>
-		<h1 @click="getmore" class="lookmore">查看更多</h1>
-	
+		<h1 @click="getmore"  v-if="length == 4" class="lookmore">查看更多</h1>
 	<!-- ......... foot ......... -->
-	<foot-cmpt></foot-cmpt>
+	<foot-cmpt :isshow="true"></foot-cmpt>
 </div>
 </template>
 <script>
@@ -31,11 +30,13 @@ import FootCmpt from './Foot'
 
  export default {
  	components:{
-  	FootCmpt
+  		FootCmpt
   	},
 	 data:() => {
 	 	return {
-	 		data:[]
+	 		data:[],
+	 		count:0,
+	 		length:4
 	 	}
 	 },
 	 mounted() {
@@ -47,27 +48,20 @@ import FootCmpt from './Foot'
 	 		this.data = data
 	 	})
 	 },
-	 getmore(){
-	 	var count = 0;
-	 	count++
-	 	// axios({
-	 	// 	url:'/api/topic/find',
-	 	// 	data:{
-	 	// 		start:4*count,
-	 	// 		count:3
-	 	// 	}
-	 	// })
-	 	// .then((result) => {
-	 	// 	let data = result.data.data
-	 	// 	this.data.push(data)
-	 	// })
-	 }
+	methods:{
+	 	getmore(){
+
+	 		axios({
+		 		url:'/api/topic/find?start='+(4*++this.count)+'&count=4',
+		 	})
+		 	.then((result) => {
+
+		 		this.length = result.data.data.length
+		 		let data = result.data.data
+		 		this.data = this.data.concat(data)
+		 	})
+	 	}
+	},
 	}
 
-  // $.ajax({
-  //             url: '/api/listmore',
-  //             data: {
-  //               pageNo: ++pageCount,
-  //               pageSize: opt.loadmoreSize
-  //             },
 </script>

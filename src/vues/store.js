@@ -3,18 +3,25 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-const store1 = new Vuex.store({
+const store = new Vuex.store({
 	state:{
-		tip:{
-
+		list:{
+			showPic:'',
+			showName:'',
+			showTime:'',
+			showLocal:'',
+			showPrice:'',
+			showStates:'',
+			showTips:'',
+			url:''
 		}
 	}
 
 	mutations:{
-		setTip(state, payload){
-			state.nav = {...payload}
+		setList(state, payload){
+			state.list = {...payload}
 		}
 	}
 })
 
-export default store1
+export default store

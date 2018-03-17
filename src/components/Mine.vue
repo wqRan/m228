@@ -95,5 +95,45 @@
 			</div>
 			
 		</div>
+	
+	<!-- ......... foot ......... -->
+	<foot-cmpt></foot-cmpt>
 	</div>
 </template>
+
+<script>
+import axios from 'axios'
+import FootCmpt from './Foot'
+import "../assets/public/web-storage-cache.min.js"
+//const wsCache = new WebStorageCache()
+//console.log(wsCache)
+	export default{
+		components:{
+  		FootCmpt
+  	},
+		/*beforeRouteEnter (to, from, next) {
+    		console.log('beforeRouteEnter')
+    		const wsCache = new WebStorageCache()
+					
+    		axios({
+				url:'api/users/issignin',
+				header:{
+					'X-Access-Token': wsCache.get('token')
+				}
+			})
+			.then((result)=>{
+				if(result.data.data.issignin){
+					 this.$router.push("mine")
+					 next()
+				}else{
+					console.log(0)
+					 this.$router.push("login")
+					 next()
+				}
+			})
+			
+		  }*/
+
+		
+	}
+</script>

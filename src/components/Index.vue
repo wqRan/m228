@@ -3,7 +3,8 @@
 <div class="container">
 	<!-- ...... header ...... -->
 	<header>
-	  <a id="ylCity" href="javascript:;">全国</a>   
+		<router-link to="/city" id="ylCity">{{msg}}</router-link>
+	 <!--  <a id="ylCity" href="javascript:;">全国</a>  -->  
 	  <h1>永乐票务</h1>        
 	</header>  
 	<!-- ...... search ...... -->          
@@ -27,7 +28,7 @@
 	<div class="index-nav index-nav-20">
         <ul class="navBtn">
             <li class="nav-item1"><router-link to="/classify">全部分类</router-link></li>
-            <li class="nav-item2"><router-link to="/login">用户中心</router-link></li>
+            <li class="nav-item2"><router-link to="/mine">用户中心</router-link></li>
             <li class="nav-item3"><router-link to="/ylSpeak">永乐说戏</router-link></li>
             <li class="nav-item4"><router-link to="/activities">专题活动</router-link></li>
            <li class="nav-item5"><router-link to="/verification">在线验票</router-link></li>
@@ -56,15 +57,12 @@
 	<!-- ........ newList.............. -->
 	<div id="newList">
 		<div class="newList" id="newListitem">
-			<router-view></router-view>
+			<router-view :isshow="true"></router-view>
 		</div>
 		
 	</div>
 	<!-- .........foot-icon.............. -->
 	<div class="foot-icon">
-	<!-- classify查看更多演出 -->
-	<h1 class="moreshows"><router-link to="/classify">查看更多全国演出</router-link></h1>
-
 	    <ul>
 	        <li class="foot-item1"><a href="javascript:;">演唱会</a></li>
 	        <li class="foot-item2"><a href="javascript:;">话剧舞台剧</a></li>
@@ -77,7 +75,7 @@
 	    </ul>
 	</div>
 	<!-- ......... foot ......... -->
-	<foot-cmpt></foot-cmpt>
+	<foot-cmpt :isshow="true"></foot-cmpt>
 	
 	<!-- .......fix图标 -->
 	<div id="Navigation">
@@ -100,12 +98,17 @@
    
 import Banner from './Banner.vue'
 import FootCmpt from './Foot'
-
+import cityCmpt from './City'
 export default {
-
+	props: {
+	    msg: {
+	      default:'全国'
+	    }
+	  },
   components:{
   	Banner,
-  	FootCmpt
+  	FootCmpt,
+  	cityCmpt
   	},
 	data: () => {
 	    return {
@@ -119,5 +122,4 @@ export default {
       }
     }
 }
-
 </script>

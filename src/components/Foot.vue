@@ -1,7 +1,7 @@
 <template lang="html">
 	<div class="foot">
 		<!-- one-download -->
-		<div class="foot-down">
+		<div class="foot-down" v-if="isshow">
 		   	<div class="foot-down-r"><a href="javascript:;">立刻下载</a></div>
 		  	<div class="foot-down-l">
 		  		<div class="logo-down"></div>
@@ -33,3 +33,13 @@
 	    
 	</div>
 </template>
+
+<script>
+
+export default {
+  props: {
+    isshow: [Boolean]
+  }
+}
+
+</script>

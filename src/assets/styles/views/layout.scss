@@ -171,26 +171,7 @@
     width: 100%;
     // height: 2.16rem;
     background: #f0f0f0;
-    margin-top: .2rem;
-     // classify查看更多演出
-    .moreshows{
-      padding: 0rem .1rem .1rem;
-      background: #f0f0f0;
-      text-align: center;
-      height: .45rem;
-      line-height: .45rem;
-      @include border(1px 0 0 0 );
-      font-weight: normal;
-      margin-bottom: 15px;
-      a{
-        display:inline-block;
-        text-align: center;
-        width: 100%;
-        font-size: 14px;
-        color: #FF0033;
-        background-color: #fff;
-      }
-    }
+
     ul{
       width: 100%;
       height: 100%;
@@ -223,6 +204,8 @@
       }
     }
   }
+  
+
   // -------foot
  
   // --------fix图标
