@@ -1,0 +1,211 @@
+@mixin bg{
+	 display: inline-block;
+     background: url(https://s2m.228.cn/resources/images/pro-new-icon1.png) no-repeat;
+     background-size:50px auto;
+}
+.product-pic{
+	width:100%;
+	height:100%;
+	overflow: hidden;
+    padding: .15rem;
+    background: url(https://s2m.228.cn/resources/images/productqz-top.png) no-repeat;
+    @include flexbox();
+
+    .pro-new-left{
+		width: .9rem;
+	    overflow: hidden;
+	    margin-right: .15rem;
+	    border-radius: .5rem;
+	    position: relative;
+	    img{
+	    	width:.9rem;
+	    	height:1.2rem;
+	    }
+    }
+    .pro-new-right{
+    	width: calc(100% - 1.1rem);
+	    overflow: hidden;
+	    h1{
+	    	width: 100%;
+		    height: .65rem;
+		    line-height: .16rem;
+		    overflow: hidden;
+		    margin-bottom: .1rem;
+		    display: -webkit-box;
+		    text-overflow: ellipsis;
+		    -webkit-line-clamp: 3;
+		    -webkit-box-orient: vertical;
+		    word-break: break-all;
+		    font-size: .14rem;
+		    color: #fff;
+		    font-weight: normal;
+			    }
+	    }
+	    .time{
+	    	font-size: .12rem;
+		    color: #fff;
+		}
+		.sale{
+			 overflow: hidden;
+		    padding-top: .12rem;
+		    @include flexbox();
+		    @include justify-content(space-between);
+		    .status{
+		    	background: #f42936;
+		    	display: inline-block;
+			    float: left;
+			    height: .2rem;
+			    line-height: .2rem;
+			    overflow: hidden;
+			    padding: 0 .05rem;
+			    border-radius: .03rem;
+			    color: #fff;
+			    font-size: .1rem;
+		    }
+		    .footer{
+		    	position: fixed;
+			    bottom: 0;
+			    left: 0;
+		    	width: 100%;
+			    height: .44rem;
+			    margin-top: .2rem;
+			    z-index: 22;
+			    @include flexbox();
+			    .bot-askarea{
+			    	width: 16%;
+	    			height: .44rem;
+				    line-height: .44rem;
+				    text-align: center;
+				    background: #333;
+				    color: #fff;
+				    span{
+				    	display: block;
+					    width: .4rem;
+					    height: .4rem;
+					    margin: .04rem auto 0;
+					    background: url(//s2m.228.cn/resources/images/icon-xnkf.png) no-repeat;
+					    background-size: 100% auto;
+					    background-position: 0 -1602px;
+				    }
+				}
+				.bot-btn{
+					color:#fff;
+					@include flex(1);
+				    display: block;
+				    background: #e12d38;
+				    height: .44rem;
+				    line-height: .44rem;
+				    text-align: center;
+				}
+		    }
+		    .icon{
+				.share{
+			    	@include bg();
+				    display: inline-block;
+				    width: .16rem;
+				    height: .16rem;
+				    background-position: 0 -51px;
+			    }
+			    .favorite{
+			    	@include bg();
+				    display: inline-block;
+				    width: .18rem;
+				    height: .15rem;
+				    margin-right: .16rem;
+				    background-position: 0 -26px;
+					    
+				}
+		    }
+		   
+		}
+}
+.discounts-box{
+	line-height: .16rem;
+    overflow: hidden;
+    padding: .1rem;
+    background: #fff;
+    color: #646464;
+    margin-bottom: .1rem;
+    font-size: .12rem;
+}
+.location-box{
+	overflow: hidden;
+    background: #fff;
+    margin-bottom:.1rem;
+    ul{
+    	li{
+    		overflow: hidden;
+		    height: .45rem;
+		    line-height: .45rem;
+		    padding: 0 .15rem;
+		    border-bottom: 1px solid #dedede;
+		    a{
+		    	    text-decoration: none;
+    				color: #333;
+
+    				.addr{
+    					display: inline-block;
+					    background: url(//s2m.228.cn/resources/images/pro-new-icon1.png) no-repeat;
+					    background-size: 50px auto;
+    					width: .15rem;
+					    height: .16rem;
+					    margin-top: .15rem;
+					    background-position: 0 -77px;
+						margin-right:.1rem;
+					    
+    				}
+    				.price{
+    					display: inline-block;
+					    background: url(//s2m.228.cn/resources/images/pro-new-icon1.png) no-repeat;
+					    background-size: 50px auto;
+						    width: .15rem;
+						    height: .15rem;
+						    margin-top: .15rem;
+						    background-position: 0 -103px;
+						    margin-right:.1rem;
+
+
+    				}
+		    }
+		}
+    }
+}
+.product_content{
+	overflow: hidden;
+    padding: .15rem;
+    padding-bottom: .05rem;
+    background: #fff;
+    margin-bottom:.1rem;
+
+    h2{
+    	margin-bottom: .1rem;
+	    font-size: .14rem;
+	    font-weight: normal;
+	    color: #f42936;
+	    }
+	.text{
+		line-height: .2rem;
+        color: #646464;
+        font-size:.12rem;
+	}
+	a{
+		display: block;
+	    width: 100%;
+	    height: .4rem;
+	    line-height: .4rem;
+	    margin-top: .05rem;
+	    /* text-align: center; */
+	    border-top: 1px solid #dedede;
+	   color:#666;
+		.more_right{
+				display: inline-block;
+			    background: url(//s2m.228.cn/resources/images/pro-new-icon1.png) no-repeat;
+			    background-size: 50px auto;
+				width: .07rem;
+			    height: .07rem;
+			    margin-top: .2rem;
+			    background-position: 0 -128px;
+			}
+	}
+	
+}

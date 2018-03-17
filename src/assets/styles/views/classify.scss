@@ -2,19 +2,72 @@
 	width:100%;
 	height:100%;
 	background-color:#fff;
+
 	.titlelist{
+		position:relative;
 		height:.63rem;
-		ul{
+		z-index:4000;
+	
+		.titlelist_detail_top{
 			height:100%;
 			@include flexbox();
 			@include justify-content();
+			z-index:4000;
 			li{
 				@include flex(1);
 				text-align:center;
 				line-height:.63rem;
 				/* border:.005rem solid #ddd; */
 				@include border();
+				z-index:4000;
 			}
+		}
+		.mask{
+			    height: 1725px;
+    			display: block;
+			    background: #000000;
+			    opacity: 0.75;
+			    position: fixed;
+			    left: 0px;
+			    width: 100%;
+			    height: 26.20rem;
+			    z-index: 1000;
+			    top: 0;
+
+		}
+		.titlelist_detail_bot{
+
+			top: .6rem;
+    		display: block;
+			position: absolute;
+		    top: .63rem;
+		    left: 0;
+		    z-index: 4000;
+		    width: 100%;
+		    border-bottom: 1px solid #d6d6d6;
+		    background-color: #fff;
+		    -webkit-box-flex: 1;
+		    .titlelist_detail_list{
+		    	background: #fff;
+			    width: 100%;
+			    overflow: hidden;
+			    @include flexbox();
+			    @include flex-wrap(wrap);
+				
+			    li{
+			    	
+			    	 height: .4rem;
+				    line-height: .4rem;
+				    width: 33.3333%;
+				    @include border(0 1px 1px 0)
+				    
+				    font-size: .14rem;
+				    font-family: "System San Francisco";
+				    text-align: center;
+
+			    }
+		    }
+
 		}
 	}
 	

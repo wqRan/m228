@@ -28,7 +28,7 @@
 	<div class="index-nav index-nav-20">
         <ul class="navBtn">
             <li class="nav-item1"><router-link to="/classify">全部分类</router-link></li>
-            <li class="nav-item2"><router-link to="/mine">用户中心</router-link></li>
+            <li class="nav-item2"><router-link to="/login">用户中心</router-link></li>
             <li class="nav-item3"><router-link to="/ylSpeak">永乐说戏</router-link></li>
             <li class="nav-item4"><router-link to="/activities">专题活动</router-link></li>
            <li class="nav-item5"><router-link to="/verification">在线验票</router-link></li>
@@ -78,7 +78,7 @@
 	<foot-cmpt></foot-cmpt>
 	
 	<!-- .......fix图标 -->
-	<div id="Navigation">
+	<!-- <div id="Navigation">
 		<div class="index-le" v-on:click="showhide">
 	        <a class="index-le-l"></a>
 	    </div>
@@ -90,31 +90,57 @@
 	    	<a class="index_detail5"></a>
 	    	<a class="index_detail6"></a>
 	    </div>
-	</div>
+	</div> -->
+	<navigation></navigation>
 </div>
 </template>
 
 <script>
-   
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 import Banner from './Banner.vue'
 import FootCmpt from './Foot'
+import Navigation from './Navigation'
+import axios from 'axios'
+/*import wsCache from '../assets/public/web-storage-cache.min.js'*/
+import wsCache from 'web-storage-cache'
+Vue.use(VueRouter) 
 
 export default {
-
+ 
   components:{
   	Banner,
-  	FootCmpt
+  	FootCmpt,
+  	Navigation
   	},
-	data: () => {
-	    return {
-	      isshow:false
-	    }
-	  },
-   methods:{
-     showhide:function(){
-     	
-        this.isshow = !this.isshow;
-      }
-    }
+  	/*'/api/users/issignin'watch:{
+  		'$route':function(to,from){
+  			let token = $wsCache.get('token');
+  			if(to.matched.some(record => record.meta.requiresAuth) && (!token || token === null)){
+  				console.log(1)
+  				next({
+  					path:'/login',
+  					query:{redirect: to.fullPath}
+  				})
+  			}else{
+  				console.log(0)
+  				next()
+  			}
+  		}
+  	}*/
+
+  /*mounted(){
+  	Vue.prototype.$wsCache = new wsCache()；
+  	axios({
+  		url:'/api/users/issignin',
+  		headers:{'X-Access-Token': $wsCache.get('token')},
+  	})
+  	.then((result)=>{
+  		console.log(result)
+  		
+  	})
+  }*/
+ 
+	
 }
 </script>

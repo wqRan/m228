@@ -16,7 +16,7 @@
 							<img src="https://s2m.228.cn/resources/images/person-per.png">
 						</div>
 						<div class="usernickname">
-							<span>Mickyio</span>
+							<span>{{username}}</span>
 						</div>
 					</div>
 					<div class="set">
@@ -98,12 +98,33 @@
 	</div>
 </template>
 <script>
-import axios from 'axios'
-import "../assets/public/web-storage-cache.min.js"
-//const wsCache = new WebStorageCache()
+/*import axios from 'axios'
+import "../assets/public/web-storage-cache.min.js"*/
+/*const wsCache = new eWebStorageCach()*/
 //console.log(wsCache)
+import Login from '@/components/Login'
 	export default{
+		data: ()=>{
+			return{
+				username:''
+				
+			}
+		},
+		mounted(){
+			/*getParams(){*/
+				let routerParams=this.$route.params.dataObj
+
+				this.username=routerParams
+				console.log(this.$route.params)
+			/*}*/
+		},
 		
+		watch:{
+			'$route':'getParams'
+		},
+		components:{
+			Login
+		}
 		/*beforeRouteEnter (to, from, next) {
     		console.log('beforeRouteEnter')
     		const wsCache = new WebStorageCache()

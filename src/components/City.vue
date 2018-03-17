@@ -14,7 +14,7 @@
 			</p>
 			<h4 class="hot">热门城市</h4>
 			<ul class="hotCity_list">
-				<li v-for="c in hotcitylist">{{c}}</li>
+				<li v-for="c in hotcitylist" v-model="hotcity" @click="chooseCity">{{c}}</li>
 			</ul>
 			<h4 class="more">更多城市</h4>
 			<ul class="moreCity_list">
@@ -29,6 +29,12 @@
 			return {
 				hotcitylist:['全国','北京','上海','广州','深圳','武汉','合肥','南京','西安'],
 				morecitylist:['澳门','安庆','宝鸡','本溪','包头','长春','成都','重庆','长沙','常州','德阳','东莞','大连','佛山','抚顺','德州','桂林','贵阳','邯郸','黄冈','呼和浩特','哈尔滨','杭州','金华','澳门','安庆','宝鸡','本溪','包头','长春','成都','重庆','长沙','常州','德阳','东莞','大连','佛山','抚顺','德州','桂林','贵阳','邯郸','黄冈','呼和浩特','哈尔滨','杭州','金华'],
+				hotcity:'',
+			}
+		},
+		methods:{
+			chooseCity:function(){
+				this.$emit('checkcity',this.hotcity)
 			}
 		}
 	}
