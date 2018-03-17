@@ -6,8 +6,8 @@
 	</div>	
 </template>
 
-<script>
 
+<script>
 import IndexCmpt from './components/Index.vue'
 
 export default {
