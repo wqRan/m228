@@ -9,20 +9,17 @@
 	</header>  
 	<!-- ...... search ...... -->          
 	<div id="js_search" class="sear-comm" style="margin-bottom:.1rem;">
-		<div class="sear-all">
-			<form action="//m.228.cn/search.html" method="get" id="currentSearchForm">
-				<span class="sear-m"> 
-					<input type="search" class="sear-inp" id="search-text" name="keyword" onkeydown="search2(this,'#searchForm','');" autocomplete="off" data-key="阴阳师" placeholder="阴阳师"> 
-				</span>
-				<a class="fr" href="javascript:search('#search-text','')"></a>
-			</form>
+		<div class="sear-all">			
+			<input type="search" class="sear-inp" name="keyword" autocomplete="off" v-model="content" placeholder="全职高手">
+			<span @click="search" class="fr" ></span>
+			<!-- <router-link to="/search" ></router-link> 				 -->
 		</div>
 	</div>
 	<!-- ....... banner ............ -->
 	
 		  <banner></banner>
 	
-	
+	   
 
 	<!-- ........ nav ....... -->
 	<div class="index-nav index-nav-20">
@@ -78,19 +75,6 @@
 	<foot-cmpt :isshow="true"></foot-cmpt>
 	
 	<!-- .......fix图标 -->
-	<!-- <div id="Navigation">
-		<div class="index-le" v-on:click="showhide">
-	        <a class="index-le-l"></a>
-	    </div>
-	    <div class="index_detail" v-show="isshow">
-	    	<a class="index_detail1"></a>
-	    	<a class="index_detail2"></a>
-	    	<a class="index_detail3"></a>
-	    	<a class="index_detail4"></a>
-	    	<a class="index_detail5"></a>
-	    	<a class="index_detail6"></a>
-	    </div>
-	</div> -->
 	<navigation></navigation>
 </div>
 </template>
@@ -111,25 +95,30 @@ export default {
 	    msg: {
 	      default:'全国'
 	    }
-	  },
-  components:{
-  	Banner,
-  	FootCmpt,
-  	cityCmpt,
-  	Navigation
-  }
+	},
+	data: ()=>{
+		return{
+			content:'',
+		}
+	},
+  	components:{
+	  	Banner,
+	  	FootCmpt,
+	  	cityCmpt,
+	  	Navigation
+  	},
+  	methods:{
+  		search(){
+  			this.$router.push({
+  				path:'/search',
+  				name:'search',
+  				query:{
+  					data:this.content
+  				}
+  			})
+  		}
+  	}
 
-  /*mounted(){
-  	Vue.prototype.$wsCache = new wsCache()；
-  	axios({
-  		url:'/api/users/issignin',
-  		headers:{'X-Access-Token': $wsCache.get('token')},
-  	})
-  	.then((result)=>{
-  		console.log(result)
-  		
-  	})
-  }*/
-	
+
 }
 </script>

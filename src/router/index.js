@@ -16,6 +16,7 @@ import Mine from '@/components/Mine'
 import Banner from '@/components/Banner'
 import City from '@/components/City'
 import Detail from '@/components/Detail'
+import Search from '@/components/Search'
 
 Vue.use(Router)
 
@@ -84,9 +85,16 @@ export default new Router({
       component: City
     },
     {
-      path: '/detail',
+      path: '/detail/:id',
       name: 'detail',
-      component: Detail
-    }
+      component: Detail,
+      props: true
+    },
+     {
+      path: '/search',
+      name: 'search',
+      component: Search,
+      props:true
+    },
   ]
 })

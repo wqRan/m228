@@ -74,7 +74,7 @@ import axios from 'axios'
 							path:'/mine',
 							name:'mine',
 							params:{
-								
+
 								dataObj:this.username
 							}
 						})

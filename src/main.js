@@ -10,7 +10,7 @@ import "./assets/public/zepto.min.js"
 import "./assets/styles/app.scss"
 
 Vue.config.productionTip = false
-/*Vue.prototype.$wsCache = new wsCache(); */
+Vue.prototype.$wsCache = new wsCache(); 
 
 new Vue({
   el: '#app',

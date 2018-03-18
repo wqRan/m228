@@ -1,6 +1,6 @@
 <template lang="html">
 <div>
-    <dl v-for="(v,i) in data" :key="i._id" class="pro-list cl"  >
+    <dl v-for="(v,i) in data" :key="i._id" class="pro-list cl" @click="routrTo(v._id)" >
        <dt><img :src="`http://localhost:3000/uploads/${v.showPic}`"></dt>
        <dd class="pro-tit"><a href="">{{v.showName}}</a></dd>
        <dd>
@@ -32,6 +32,7 @@ import axios from 'axios'
 export default {
     props: {
     isshow: [Boolean],
+
   },
     data:() => {
         return{
@@ -48,6 +49,19 @@ export default {
            this.data = data.result
         })
     },
+    methods:{
+      routrTo(id){
+        // console.log(id)
+        location.hash = '/detail/'+id
+        // this.$router.replace({
+        //   path:'/detail',
+        //   name:'detail',
+        //   params:{
+        //         dataObj:id
+        //   }
+        // })
+      }
+    }
   
 }
 

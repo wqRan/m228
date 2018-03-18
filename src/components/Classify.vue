@@ -7,7 +7,7 @@
 	    </div>
 	    <h1 class="head-m">全国</h1>
 	</div>
-<!-- ........ newList.............. -->
+<!-- ........ List.............. -->
 		<div id="classifyList">
 
 			<div class="titlelist">
@@ -32,7 +32,7 @@
 	<!-- ........ newList.............. -->
 	<div id="newList" style="background: #fff;">
 		<div class="newList" id="newListitem">
-			<dl v-for="(v,i) in data" :key="i._id" class="pro-list cl"  >
+			<dl v-for="(v,i) in data" :key="i._id" @click="routrTo(v._id)" class="pro-list cl"  >
 		       <dt><img :src="`http://localhost:3000/uploads/${v.showPic}`"></dt>
 		       <dd class="pro-tit"><a href="">{{v.showName}}</a></dd>
 		       <dd>
@@ -104,7 +104,10 @@ export default {
   		},
   		showhide:function(){
 	        	this.isshow = !this.isshow;
-	      	}
+	    },
+	    routrTo(id){
+        	location.hash = '/detail/'+id
+      }
   	}
 
 

@@ -13,15 +13,11 @@
 			</p>
 			<h4 class="hot">热门城市</h4>
 			<ul class="hotCity_list">
-<<<<<<< HEAD
-				<router-link to="/" v-for="(c,i) in hotcitylist" :key="1" tag="li" :msg="c">{{c}}</router-link>
-=======
-				<li v-for="c in hotcitylist" v-model="hotcity" @click="chooseCity">{{c}}</li>
->>>>>>> 20180315-lumeiqin
+				<router-link to="/" v-for="(c,i) in hotcitylist" :key="i._id" tag="li" :msg="c">{{c}}</router-link>
 			</ul>
 			<h4 class="more">更多城市</h4>
 			<ul class="moreCity_list">
-				<router-link to="/" v-for="(m,i) in morecitylist" :key="2" tag="li">{{m}}</router-link>
+				<router-link to="/" v-for="(m,i) in morecitylist" :key="i._id" tag="li">{{m}}</router-link>
 			</ul>
 		</div>
 	</div>
