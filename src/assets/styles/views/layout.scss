@@ -164,13 +164,14 @@
       }
     }
   }
+ 
 
   // -------foot-icon
   .foot-icon{
     width: 100%;
-    height: 2.16rem;
+    // height: 2.16rem;
     background: #f0f0f0;
-    margin-top: .2rem;
+
     ul{
       width: 100%;
       height: 100%;
@@ -203,92 +204,10 @@
       }
     }
   }
+  
+
   // -------foot
-  .foot{
-    width: 100%;
-    height: 2.63rem;
-    text-align: center;
-    background: #fff;
-    // one
-    .foot-down{
-      height: .68rem;
-      margin: 0 auto;
-      background: rgba(0,0,0,0.8);
-      width: 95%;
-      padding: .12rem;
-      .foot-down-r {
-          float: right;
-          a{
-              display: inline-block;
-              height: .36rem;
-              line-height: .36rem;
-              overflow: hidden;
-              margin-top: .05rem;
-              padding: 0 0.1rem;
-              text-align: center;
-              background: #eb414b;
-              border-radius: 4px;
-              color: #fff;
-              font-size: 14px;
-          }
-      }
-      .foot-down-l {
-        float: left;
-        color: #ebebeb;
-        width: 63%;
-        .logo-down {
-            float: left;
-            background: url(../images/icon-xnkf.png) no-repeat 0 -1219px;
-            width: 35px;
-            height: 35px;
-            background-size: 100% auto;
-            margin-right: .05rem;
-        }
-        .gray {
-            color: #8a8a8a;
-        }
-      }
-    }
-    // two
-    .foot-person{
-      height: .41rem;
-      width: 100%;
-      line-height: .41rem;
-      overflow: hidden;
-      padding: 0 15px;
-      border-bottom: 1px solid #dedede;
-      .pro-con-h2 {
-        color: #f42936;
-        float: left;
-      }
-      .Jupto{
-        width: 24px;
-        height: 19px;
-        margin-top: 10px;
-        display: inline-block;
-        background: url(../images/pro-new-icon.png) no-repeat 0 -150px;
-        background-size: 362px auto;
-        float: right;
-      }
-    }
-    //three
-    .foterbox-p{
-      color: #f42936;
-      height: .46rem;
-      line-height: .46rem;
-    }
-    ul{
-      text-align: center;
-      li{display: inline-block;
-        font-size: 12px;
-        a{color:  #646464;}}
-    }
-    .foterbox-pbot{
-      margin-top: 15px;
-      color:  #646464;
-      font-size: 12px;
-    }
-  }
+ 
   // --------fix图标
   .index-le{
     position: fixed;

@@ -95,59 +95,37 @@
 			</div>
 			
 		</div>
+	
+	<!-- ......... foot ......... -->
+	<foot-cmpt></foot-cmpt>
 	</div>
 </template>
+
 <script>
-/*import axios from 'axios'
-import "../assets/public/web-storage-cache.min.js"*/
-/*const wsCache = new eWebStorageCach()*/
-//console.log(wsCache)
+
+import axios from 'axios'
+import FootCmpt from './Foot'
+import "../assets/public/web-storage-cache.min.js"
 import Login from '@/components/Login'
+
 	export default{
-		data: ()=>{
-			return{
-				username:''
-				
-			}
-		},
-		mounted(){
-			/*getParams(){*/
-				let routerParams=this.$route.params.dataObj
 
-				this.username=routerParams
-				console.log(this.$route.params)
-			/*}*/
-		},
-		
-		watch:{
-			'$route':'getParams'
-		},
-		components:{
-			Login
-		}
-		/*beforeRouteEnter (to, from, next) {
-    		console.log('beforeRouteEnter')
-    		const wsCache = new WebStorageCache()
-					
-    		axios({
-				url:'api/users/issignin',
-				header:{
-					'X-Access-Token': wsCache.get('token')
-				}
-			})
-			.then((result)=>{
-				if(result.data.data.issignin){
-					 this.$router.push("mine")
-					 next()
-				}else{
-					console.log(0)
-					 this.$router.push("login")
-					 next()
-				}
-			})
+	components:{
+		FootCmpt,
+		Login
+  	},
+	data: ()=>{
+		return{
+			username:''
 			
-		  }*/
+		}
+	},
+	mounted(){
+		let routerQuery=this.$route.query.dataObj
+		this.username=routerQuery
+		console.log(this.$route.query)
+	}
 
-		
+	
 	}
 </script>

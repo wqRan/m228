@@ -17,7 +17,6 @@
 				@include flex(1);
 				text-align:center;
 				line-height:.63rem;
-				/* border:.005rem solid #ddd; */
 				@include border();
 				z-index:4000;
 			}
@@ -70,5 +69,29 @@
 
 		}
 	}
-	
+}
+
+ // classify查看更多演出
+.moreshows{
+  padding: 0rem .1rem .1rem;
+  background: #f0f0f0;
+  text-align: center;
+  height: .45rem;
+  line-height: .45rem;
+  @include border(1px 0 0 0 );
+  font-weight: normal;
+  a{
+    display:inline-block;
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+    color: #FF0033;
+    background-color: #fff;
+  }
+}
+.classifyfoot{
+	margin-top: 15px;
+	padding: 0rem .1rem .1rem;
+	font-size: .12rem;
+	color: #969696;
 }

@@ -1,6 +1,6 @@
 <template lang="html">
 <div class="sitebg">
-	<dl v-for="(v,i) in data" class="pro-list1" >
+	<dl v-for="(v,i) in data" :key="i._id" class="pro-list1" >
         <dt><img :src="`http://localhost:3000/uploads/${v.sitePic}`"></dt>
         <dd class="pro-tit">{{v.siteTitle}}</dd>
         <dd>
@@ -20,7 +20,7 @@
 import axios from 'axios'
 
 export default {
-    /*data:() => {
+    data:() => {
         return{
             data:[]
         }
@@ -34,7 +34,7 @@ export default {
            let data = result.data.data
            this.data = data
         })
-    }*/
+    }
 }
 
 </script>

@@ -6,8 +6,10 @@
 	</div>	
 </template>
 
-<script>
 
+
+<script>
+import wsCache from 'web-storage-cache'
 import IndexCmpt from './components/Index.vue'
 
 export default {
@@ -17,11 +19,3 @@ export default {
   }
 }
 </script>
-
-
-
-
-
-<style>
-
-</style>

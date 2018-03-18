@@ -24,6 +24,7 @@
 						</a>
 						<a class="bot-btn">
 							<span>立即购买</span>
+							<!-- <router-link to="/order"></router-link> -->
 						</a>
 					</div>
 					<span class="icon">

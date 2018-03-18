@@ -16,6 +16,8 @@ import Mine from '@/components/Mine'
 import Banner from '@/components/Banner'
 import City from '@/components/City'
 import Detail from '@/components/Detail'
+import Order from '@/components/Order'
+import Shopcar from '@/components/Shopcar'
 
 Vue.use(Router)
 
@@ -66,13 +68,15 @@ export default new Router({
     {
       path: '/verification',
       name: 'verification',
-      component: Verification
+      component: Verification,
+      meta:{requiresAuth:true}
     },
     
     {
       path: '/mine',
       name: 'mine',
-      component: Mine
+      component: Mine,
+      meta:{requiresAuth:true}
      /* beforeEnter:(to,from,next)=>{
         console.log(1)
         next()
@@ -86,7 +90,16 @@ export default new Router({
     {
       path: '/detail',
       name: 'detail',
-      component: Detail
+      component: Detail,
+      
+    },
+    {
+        path:'/order',
+        component:Order,
+    },
+    {
+        path:'/shopcar',
+        component:Shopcar,
     }
   ]
 })

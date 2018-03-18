@@ -3,7 +3,7 @@
 <div class="container">
 	<!-- ...... header ...... -->
 	<header>
-		<router-link to="/city" id="ylCity">全国</router-link>
+		<router-link to="/city" id="ylCity">{{msg}}</router-link>
 	 <!--  <a id="ylCity" href="javascript:;">全国</a>  -->  
 	  <h1>永乐票务</h1>        
 	</header>  
@@ -28,7 +28,7 @@
 	<div class="index-nav index-nav-20">
         <ul class="navBtn">
             <li class="nav-item1"><router-link to="/classify">全部分类</router-link></li>
-            <li class="nav-item2"><router-link to="/login">用户中心</router-link></li>
+            <li class="nav-item2"><router-link to="/mine">用户中心</router-link></li>
             <li class="nav-item3"><router-link to="/ylSpeak">永乐说戏</router-link></li>
             <li class="nav-item4"><router-link to="/activities">专题活动</router-link></li>
            <li class="nav-item5"><router-link to="/verification">在线验票</router-link></li>
@@ -57,7 +57,7 @@
 	<!-- ........ newList.............. -->
 	<div id="newList">
 		<div class="newList" id="newListitem">
-			<router-view></router-view>
+			<router-view :isshow="true"></router-view>
 		</div>
 		
 	</div>
@@ -75,22 +75,8 @@
 	    </ul>
 	</div>
 	<!-- ......... foot ......... -->
-	<foot-cmpt></foot-cmpt>
+	<foot-cmpt :isshow="true"></foot-cmpt>
 	
-	<!-- .......fix图标 -->
-	<!-- <div id="Navigation">
-		<div class="index-le" v-on:click="showhide">
-	        <a class="index-le-l"></a>
-	    </div>
-	    <div class="index_detail" v-show="isshow">
-	    	<a class="index_detail1"></a>
-	    	<a class="index_detail2"></a>
-	    	<a class="index_detail3"></a>
-	    	<a class="index_detail4"></a>
-	    	<a class="index_detail5"></a>
-	    	<a class="index_detail6"></a>
-	    </div>
-	</div> -->
 	<navigation></navigation>
 </div>
 </template>
@@ -100,30 +86,58 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Banner from './Banner.vue'
 import FootCmpt from './Foot'
+import cityCmpt from './City'
 import Navigation from './Navigation'
 import axios from 'axios'
-/*import wsCache from '../assets/public/web-storage-cache.min.js'*/
 import wsCache from 'web-storage-cache'
 Vue.use(VueRouter) 
-Vue.prototype.$wsCache = new wsCache()
+/*Vue.prototype.$wsCache = new wsCache()*/
 export default {
- 
-  components:{
-  	Banner,
-  	FootCmpt,
-  	Navigation
-  	},
-  mounted(){
-  	
-  	axios({
-  		url:'/api/users/issignin',
-  		headers:{'X-Access-Token': $wsCache.get('token')},
-  	})
-  	.then((result)=>{
-  		console.log(result)
-  		/*console.log("已登录")*/
-  	})
-  }
-	
-}
+	props: {
+	    msg: {
+	      default:'全国'
+	    }
+	  },
+	components:{
+		Banner,
+		FootCmpt,
+		cityCmpt,
+		Navigation
+	 },
+	 /*methods:{
+	 	changecity(msg){
+
+	 		this.msg=msg
+	 	}
+	 }*/
+	 /*state:{
+	 	currentUser:{
+	 		get Username(){
+	 			return $wsCache.get('username')
+	 		},
+	 		get UserToken(){
+	 			return $wsCache.get('token')
+	 		}
+	 	}
+	 },
+	mutations:{
+		setUser(state,{username,token}){
+			$wsCache.set("username",username)
+			$wsCache.set("token",token)
+		}
+	},*/
+	  /*created(){
+	  	Vue.prototype.$wsCache = new wsCache()
+	  	axios({
+
+	  		url:'/api/users/issignin',
+	  		headers:{'X-Access-Token': $wsCache.get('token')}
+	  	})
+	  	.then((result)=>{
+	  		console.log(result)
+	     
+	   	 })
+	  }*/
+	   
+ 	}
 </script>

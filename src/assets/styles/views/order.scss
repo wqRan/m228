@@ -1,0 +1,179 @@
+@mixin curr{
+	border: #eb414b 1px solid;
+    background: #eb414b;
+    color: #fff;
+    padding: .02rem .07rem;
+}
+.order_container{
+	width:100%;
+	height:100%;
+	font-size:.12rem;
+	.ticket_tids{
+		line-height: .24rem;
+	    padding: 0.05rem .12rem;
+	    margin-bottom: .06rem;
+	    background: #fff;
+	    @include border(0 0 1px 0)
+	    color: #999;
+		}
+	.ticket_dl{
+		margin-bottom: .06rem;
+	    overflow: hidden;
+	    background: #fff;
+	   // height:1.03rem;
+	    @include border(1px 0 1px 0 )
+	    .ticket_title{
+	    	margin: .08rem .12rem 0;
+		    overflow: hidden;
+		    height: .2rem;
+		    line-height: .2rem;
+		    background: #fff;
+		    font-size: .12rem;
+		    color: #333;
+		}
+		dd{
+			.day_info{
+				padding: 0rem 0.07rem .12rem;
+    			background: #fff;
+    			//height:.68rem;
+    			@include flexbox();
+    			li{
+    				position:relative;
+    				width: 33.3%;
+				    margin: .04rem 0;
+				    font-size: .12rem;
+				   // height:.44rem;
+				    color: #333;
+				    a{
+				    		
+				    	    border: 1px solid #e0e1e2;
+						    text-decoration: none;
+						    margin: 0rem .05rem;
+						    padding: .02rem .07rem;
+						    display: -webkit-box;
+						    -webkit-box-pack: center;
+						    -webkit-box-orient: vertical;
+						    color: #414141;
+						    min-height: .32rem;
+						    height: .44rem;
+						    overflow: hidden;
+						    line-height: .16rem;
+						    
+						    span{
+						    	    text-align: left;
+						    }
+						   
+				    }
+				}
+				.day_info_first{
+					a{
+						@include curr();
+					}
+				}
+			}
+		}
+		.btn-line{
+			padding: .08rem 0rem;
+			a{
+				display: block;
+			    height: .38rem;
+			    margin: 0rem .1rem;
+			    background: #eb414b;
+			    color: #fff;
+			    text-align: center;
+			    font-size: .14rem;
+			    line-height: .32rem;
+			}
+		}
+	
+		.price_container{
+			.ticket_prices{
+				     padding: 0rem .07rem .12rem;
+   					 background: #fff;
+   					 height:1.22rem;
+   					 li{
+   					 	position: relative;
+					    width: 33.3%;
+					    margin: .04rem 0;
+					    font-size: .12rem;
+					    float: left;
+					    color: #333;
+					    a{
+							    background: #f0f0f0;
+    							color: #ddd;
+    							border: 1px solid #e0e1e2;
+							    text-decoration: none;
+							    margin: 0rem .05rem;
+							    padding: .02rem .07rem;
+							    display: -webkit-box;
+							    -webkit-box-pack: center;
+							    -webkit-box-orient: vertical;
+							    color: #414141;
+							    min-height: .32rem;
+							    height: .44rem;
+							    overflow: hidden;
+							    line-height: .16rem;
+					    }
+   					 }
+			}
+		}
+		.ticket-num_container{
+			.ticket-num{
+				    height: .38rem;
+				    line-height: .3rem;
+				    margin: .08rem .12rem .15rem;
+				    @include border();
+				    position: relative;
+				    border-radius: .04rem;
+				    background: -webkit-gradient(linear,center top,center bottom,from(#fefefe),to(#f1f1f1));
+				    background: -webkit-linear-gradient(#fefefe,#f1f1f1);
+				    display: -webkit-box;
+				    @include flexbox();
+				    @include justify-content(space-around);
+				    .num-btn-s{
+				    	@include flexbox();
+				    @include justify-content(center);
+				    	width:.5rem;
+				    	height:.36rem;
+				    	border-right: #ddd 1px solid;
+    					background: url('https://s2m.228.cn/resources/images/minus.png') no-repeat center center;
+				    }
+				    .ticket_num{
+				    	text-align: center;
+					    background: #fff;
+					    font-style: normal;
+					    
+					    @include flex(1);
+					    font-size: .14rem;
+					    color: #666;
+				    }
+				    .num-btn-a{
+				    	//height:.36rem;
+				    	@include flexbox();
+				    @include justify-content(center);
+				    	width:.5rem;
+				    	border-left: #ddd 1px solid;
+    					background: url('https://s2m.228.cn/resources/images/add.png') no-repeat center center;
+				    }
+			}
+		}
+		
+	}
+	#choosed{
+		margin-bottom: .06rem;
+	    overflow: hidden;
+	    background: #fff;
+	    border-top: #ddd 1px solid;
+	    border-bottom: #ddd 1px solid;
+			.result-txt{
+				padding-left: .12rem;
+			    padding-right: .12rem;
+			    line-height: .22rem;
+			    padding-top: .1rem;
+			    padding-bottom: .1rem;
+			    font-size: .14rem;
+			    color: #e33538;
+			    border-bottom: #ddd 1px solid;
+			}
+		}
+}

@@ -73,8 +73,7 @@ import axios from 'axios'
 						this.$router.push({
 							path:'/mine',
 							name:'mine',
-							params:{
-								
+							query:{
 								dataObj:this.username
 							}
 						})

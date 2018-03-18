@@ -1,6 +1,6 @@
 <template lang="html">
-   <!--  <div>
-       <dl v-for="(v,i) in data"  class="pro-list cl"  >
+<div>
+    <dl v-for="(v,i) in data" :key="i._id" class="pro-list cl"  >
        <dt><img :src="`http://localhost:3000/uploads/${v.showPic}`"></dt>
        <dd class="pro-tit"><a href="">{{v.showName}}</a></dd>
        <dd>
@@ -16,11 +16,13 @@
            <span class="pro-sp">{{v.showPrice}}元</span>   
            <span class="state"><a class="btn b-sale">{{v.showStates}}</a></span>     
        </dd>
-       <dd v-if="v.showTips">
+       <dd v-if="v.showTips" v-show="isshow" class="tips">
            {{v.showTips}}
        </dd>
-   </dl>
-   </div> -->
+    </dl>
+    <h1 class="moreshows"><router-link to="/classify">查看更多全国演出</router-link></h1>
+   
+</div>
 </template>
 
 <script>
@@ -28,7 +30,10 @@
 import axios from 'axios'
 
 export default {
-    /*data:() => {
+    props: {
+    isshow: [Boolean],
+  },
+    data:() => {
         return{
             data:[]
         }
@@ -40,10 +45,10 @@ export default {
         })
         .then((result) => {
            let data = result.data.data
-           // console.log(data.result)
            this.data = data.result
         })
-    }*/
+    },
+  
 }
 
 </script>

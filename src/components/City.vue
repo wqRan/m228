@@ -2,8 +2,7 @@
 	<div>
 		<div class="loginHead">
 			<div class="head-l">
-				<router-link to="/" class="yo-ico">&#xf07d;</router-link>
-		       
+				<router-link to="/" class="yo-ico">&#xf07d;</router-link>    
 		    </div>
 	    	<h1 class="head-m">选择演出城市</h1>
 		</div>
@@ -14,11 +13,15 @@
 			</p>
 			<h4 class="hot">热门城市</h4>
 			<ul class="hotCity_list">
-				<li v-for="c in hotcitylist" v-model="hotcity" @click="chooseCity">{{c}}</li>
+
+				<router-link to="/" v-for="(c,i) in hotcitylist" :key="i._id" tag="li" :msg="c">{{c}}</router-link @click="chooseCity" v-model="hotcity">
+
+				
+
 			</ul>
 			<h4 class="more">更多城市</h4>
 			<ul class="moreCity_list">
-				<li v-for="m in morecitylist">{{m}}</li>
+				<router-link to="/" v-for="(m,i) in morecitylist" :key="i._id" tag="li">{{m}}</router-link>
 			</ul>
 		</div>
 	</div>
@@ -37,5 +40,6 @@
 				this.$emit('checkcity',this.hotcity)
 			}
 		}
+		
 	}
 </script>
