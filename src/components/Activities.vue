@@ -19,6 +19,9 @@
 		<h1 @click="getmore"  v-if="length == 4" class="lookmore">查看更多</h1>
 	<!-- ......... foot ......... -->
 	<foot-cmpt :isshow="true"></foot-cmpt>
+<!-- .......fix图标 -->
+
+	<navigation></navigation>
 </div>
 </template>
 <script>
@@ -26,11 +29,12 @@
 
 import axios from 'axios'
 import FootCmpt from './Foot'
-
+import Navigation from './Navigation'
 
  export default {
  	components:{
-  		FootCmpt
+  		FootCmpt,
+  		Navigation
   	},
 	 data:() => {
 	 	return {

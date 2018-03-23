@@ -1,10 +1,11 @@
 <template lang="html">
 	
-<div class="container">
+<div class="container" ref="top-scroll">
 	<!-- ...... header ...... -->
 	<header>
-		<router-link to="/city" id="ylCity">{{msg}}</router-link>
-	 <!--  <a id="ylCity" href="javascript:;">全国</a>  -->  
+		<router-link to="/city"  id="ylCity">{{msg}}</router-link>
+		<!-- <city-name></city-name> -->
+	  <!-- <a id="ylCity" href="javascript:;">全国</a>    -->
 	  <h1>永乐票务</h1>        
 	</header>  
 	<!-- ...... search ...... -->          
@@ -25,7 +26,7 @@
 	<div class="index-nav index-nav-20">
         <ul class="navBtn">
             <li class="nav-item1"><router-link to="/classify">全部分类</router-link></li>
-            <li class="nav-item2"><router-link to="/login">用户中心</router-link></li>
+            <li class="nav-item2"><router-link to="/mine">用户中心</router-link></li>
             <li class="nav-item3"><router-link to="/ylSpeak">永乐说戏</router-link></li>
             <li class="nav-item4"><router-link to="/activities">专题活动</router-link></li>
            <li class="nav-item5"><router-link to="/verification">在线验票</router-link></li>
@@ -72,9 +73,11 @@
 	    </ul>
 	</div>
 	<!-- ......... foot ......... -->
-	<foot-cmpt :isshow="true"></foot-cmpt>
+	<foot-cmpt :isshow="true" :mytop="topscroll"></foot-cmpt>
 	
+
 	<!-- .......fix图标 -->
+
 	<navigation></navigation>
 </div>
 </template>
@@ -86,9 +89,12 @@ import Banner from './Banner.vue'
 import FootCmpt from './Foot'
 import cityCmpt from './City'
 import Navigation from './Navigation'
+// import CityName from './Cityname'
 import axios from 'axios'
 import wsCache from 'web-storage-cache'
+
 Vue.use(VueRouter) 
+
 
 export default {
 	props: {
@@ -99,6 +105,7 @@ export default {
 	data: ()=>{
 		return{
 			content:'',
+			topscroll: null
 		}
 	},
   	components:{
@@ -116,9 +123,31 @@ export default {
   					data:this.content
   				}
   			})
-  		}
-  	}
+  		},
+  		throttle(method, context) {
+	        clearTimeout(method.tId);
+	        method.tId = setTimeout(function(){
+	          method.call(context);
+	        }, 100);
+	      }
+  		
+  	},
+  	mounted(){
+  		let that = this
+	      this.$refs['top-scroll'].onscroll = function () {
+	        that.throttle(() => {
+	          that.scrollTop = this.scrollTop
+	        }, this)
+	      }
 
+	      this.topscroll = this.$refs['top-scroll']
+
+  	},
+  	activated () {
+      this.$refs['top-scroll'].scrollTop = this.scrollTop
+    }
 
 }
+
+
 </script>

@@ -59,7 +59,9 @@
 
 <!-- ......... foot ......... -->
 	<foot-cmpt :isshow="true"></foot-cmpt>
+<!-- .......fix图标 -->
 
+	<navigation></navigation>
 </div>
 	
 </template>
@@ -68,11 +70,13 @@
 	
 import axios from 'axios'
 import FootCmpt from './Foot'
+import Navigation from './Navigation'
 
 export default {
 	
   components:{
-  	FootCmpt
+  	FootCmpt,
+  	Navigation
   	},
   	data:() => {
   		return{

@@ -42,9 +42,8 @@ import axios from 'axios'
 					}
 				})
 				.then((result)=>{
-					console.log(result.data.data.success)
 					if(result.data.data.success){
-						this.$router.name="login"
+						this.$router.push("login")
 					}else{
 						console.log("注册失败")
 					}

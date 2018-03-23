@@ -73,7 +73,7 @@
 					<li>
 						<div class="user_link_item">
 							<i class="shoucang_icon"></i>
-							<span>我的收藏</span>
+							<router-link to="/collection" style="    color: #646464;">我的收藏</router-link>
 						</div>
 						<i class="right_icon"></i>
 					</li>
@@ -95,7 +95,7 @@
 			</div>
 			
 		</div>
-	
+	<h1 class="lookmore" style="margin-bottom: 0;width: 100%;background: #e12d38;color: #fff" @click="goout">安全退出</h1>
 	<!-- ......... foot ......... -->
 	<foot-cmpt></foot-cmpt>
 	</div>
@@ -105,8 +105,9 @@
 
 import axios from 'axios'
 import FootCmpt from './Foot'
-import "../assets/public/web-storage-cache.min.js"
 import Login from '@/components/Login'
+import Vue from 'vue'
+import wsCache from 'web-storage-cache'
 
 	export default{
 
@@ -121,13 +122,16 @@ import Login from '@/components/Login'
 		}
 	},
 	mounted(){
-		let routerParams=this.$route.params.dataObj
-		this.username=routerParams
-		console.log(this.$route.params)
+		const data = JSON.parse(localStorage.getItem('username'))
+		this.username = data.v.replace(/\"([^\"]*)\"/,'$1')
 	},
-		
-	watch:{
-		'$route':'getParams'
+	methods:{
+		goout(){
+			Vue.prototype.$wsCache = new wsCache();  
+			this.$wsCache.delete('username')
+			this.$wsCache.delete('token')
+			location.reload()
+		}
 	}
 
 	

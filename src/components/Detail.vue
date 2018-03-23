@@ -1,16 +1,17 @@
 <template>
-	<div>
+	<div ref="mine-scroll">
 		<div class="loginHead">
 			<div class="head-l">
-				<!-- <a href="history.back" class="yo-ico">&#xf07d;</a> -->
-				<router-link to="/" class="yo-ico">&#xf07d;</router-link>
+				<a href="javascript:history.back();" class="yo-ico">&#xf07d;</a>
+				<!-- <router-link to="/" class="yo-ico">&#xf07d;</router-link> -->
 		       
 		    </div>
 	    	<h1 class="head-m">商品简介</h1>
 		</div>
 		<div class="product-pic">
 			<div class="pro-new-left">
-				<img :src="`http://localhost:3000/uploads/${data.showPic}`">
+
+				<img v-if="havepic" :src="`http://localhost:3000/uploads/${data.showPic}`">
 			</div>
 			<div class="pro-new-right">
 				<h1>
@@ -24,11 +25,13 @@
 							<span></span>
 						</a>
 						<a class="bot-btn">
-							<span>立即购买</span>
+
+							<span @click="gotobuy">立即购买</span>
+							<!-- <router-link to="/order"></router-link> -->
 						</a>
 					</div>
 					<span class="icon">
-						<i class="favorite"></i>
+						<i class="favorite" :style="style" @click="changeico"></i>
 						<i class="share"></i>
 					</span>
 					
@@ -89,18 +92,22 @@
 				<i class="more_right"></i>
 			</a>
 		</div>
-		<navigation></navigation>
 <!-- ......... foot ......... -->
 	<foot-cmpt></foot-cmpt>
+<!-- .......fix图标 -->
 
+	<navigation></navigation>
 	</div>
 	
 </template>
 <script>
-
+import Vue from 'vue'
 import Navigation from './Navigation'
 import FootCmpt from './Foot'
 import axios from 'axios'
+import { Toast } from 'mint-ui'
+import cookie from 'vue-cookie'
+Vue.use(cookie)
 
 export default {
 
@@ -110,23 +117,90 @@ export default {
   	},
   	data:() => {
         return{
-            data:[]
+            data:[],
+            havepic:false,
+            style:'background-position:0 -26px;',
+            save:''
         }
     },
   	mounted(){
 		let count = location.hash.split('/')
 		let i = count.length;
 		let id = count[i-1];
+		this.save = id
+		document.getElementById('root').scrollTop = 0 
 	axios({
             url:'/api/newslist/item/'+id
         })
         .then((result) => {
            let data = result.data.data
+           if (data.showPic) {
+           	this.havepic = true
+           }
            this.data = data
         })
 	},
+	methods:{
+		gotobuy(){
+			this.$router.push('/order')
+		},
+
+		changeico(){
+			
+			// console.log(this.save)
+			if ( this.style == 'background-position:0 0' ) {
+				this.style = 'background-position:0 -26px'
+				Toast({
+				  message: '取消收藏:(',
+				  position: 'center',
+				  duration: 2000
+				});
+				
+				let scookie = this.$cookie.get('savedata')
+				let acookie = JSON.parse(scookie).slice(0,-1)
+
+				scookie = JSON.stringify(acookie);
+				this.$cookie.set('savedata',scookie)
+			}else {
+				this.style = 'background-position:0 0'
+				Toast({
+				  message: '收藏成功:)',
+				  position: 'center',
+				  duration: 2000
+				});
+
+				var scookie = this.$cookie.get('savedata')
+				if (scookie) {
+					var acookie = JSON.parse(scookie);
+					var flag = false;
+					var self = this
+					acookie.forEach(function(item){
+						if (item.id != self.save) {
+							flag = true;
+						}
+					})
+					if (flag == true) {
+
+						var item = {
+								id:this.save
+							}
+						acookie.push(item)
+					
+					}
+					scookie = JSON.stringify(acookie);
+					this.$cookie.set('savedata',scookie)
+				}else {
+
+					this.$cookie.set('savedata','[{"id":"'+this.save+'"}]')
+					
+				}
+				
+			}
+		}
+	}
 }
 </script>
+
 <style  lang="scss">
 
 	

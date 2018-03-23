@@ -9,6 +9,7 @@
 
 
 <script>
+
 import IndexCmpt from './components/Index.vue'
 
 export default {

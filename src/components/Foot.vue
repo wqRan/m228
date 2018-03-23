@@ -1,5 +1,5 @@
 <template lang="html">
-	<div class="foot">
+	<div class="foot" ref="top">
 		<!-- one-download -->
 		<div class="foot-down" v-if="isshow">
 		   	<div class="foot-down-r"><a href="javascript:;">立刻下载</a></div>
@@ -14,7 +14,7 @@
 		<!-- two-preson -->
 		<div class="foot-person">
 	        <a href="javascript:;" class="pro-con-h2 fl">个人中心</a>
-	        <a href="javascript:;" class="Jupto fr"></a>
+	        <a href="#" class="Jupto fr" @click="gototop"></a>
 	    </div>
 	    <!-- three -->
 	    <p class="foterbox-p">
@@ -37,8 +37,11 @@
 <script>
 
 export default {
-  props: {
-    isshow: [Boolean]
+  props: ['isshow'],
+  methods:{
+  	gototop(){ 		
+  		document.getElementById('root').scrollTop = 0 		
+  	}
   }
 }
 

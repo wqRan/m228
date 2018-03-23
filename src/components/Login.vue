@@ -1,5 +1,5 @@
 <template lang="html">
-	<div class="loginPage">
+<div class="loginPage">
 	<!-- head -->
 	<div class="loginHead">
 		<div class="head-l">
@@ -39,7 +39,6 @@
 </template>
 <script>
 import Vue from 'vue'
-/*import wsCache from '../assets/public/web-storage-cache.min.js'*/
 import wsCache from 'web-storage-cache'
 import axios from 'axios'
 	export default {
@@ -61,23 +60,20 @@ import axios from 'axios'
 					}
 				})
 				.then((result)=>{
-					//console.log(result)
 					const d = result.data
-					console.log(d)
 					if(d.data.success){
 
 						Vue.prototype.$wsCache = new wsCache();                             
 						this.$wsCache.set("username", d.data.username, { exp: 60 * 60 });
-						/*this.$router.push('/mine');*/
         				this.$wsCache.set('token', d.data.token, {exp : 3600 * 24})
 						this.$router.push({
 							path:'/mine',
 							name:'mine',
-							params:{
-
+							query:{
 								dataObj:this.username
 							}
 						})
+						
 						console.log('登录成功',this.username)
 					}else{
 						console.log("登录失败")

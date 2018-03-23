@@ -17,6 +17,9 @@ import Banner from '@/components/Banner'
 import City from '@/components/City'
 import Detail from '@/components/Detail'
 import Search from '@/components/Search'
+import Order from '@/components/Order'
+import Shopcar from '@/components/Shopcar'
+import Collection from '@/components/Collection'
 
 Vue.use(Router)
 
@@ -67,13 +70,15 @@ export default new Router({
     {
       path: '/verification',
       name: 'verification',
-      component: Verification
+      component: Verification,
+      meta:{requiresAuth:true}
     },
     
     {
       path: '/mine',
       name: 'mine',
-      component: Mine
+      component: Mine,
+      meta:{requiresAuth:true}
      /* beforeEnter:(to,from,next)=>{
         console.log(1)
         next()
@@ -95,6 +100,19 @@ export default new Router({
       name: 'search',
       component: Search,
       props:true
+    },      
+    {
+        path:'/order',
+        component:Order,
+        meta:{requiresAuth:true},
     },
+    {
+        path:'/shopcar',
+        component:Shopcar,
+    },
+    {
+        path:'/collection',
+        component:Collection,
+    }
   ]
 })
