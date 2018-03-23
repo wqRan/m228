@@ -245,6 +245,40 @@
 			    	font-size:.12rem;
 			    }
 			}
+
+		}
+		.tips{
+
+				color: #f42936;
+				padding:.1rem .1rem 0 .1rem;
+				font-size:.12rem;
+			
+		}
+		.gray{
+			    color: #8a8a8a;
+			    padding:.1rem .15rem;
+			    font-size:.12rem;
+			a{
+				color: #f42936;
+			}
+		}
+		.btn{
+			padding:0 .15rem .3rem .15rem;
+			input{
+				outline: none;
+			}
+			.submit-btn{
+				display: block;
+			    width: calc(100% - 2px);
+			    height: .38rem;
+			    text-align: center;
+			    line-height: .38rem;
+			    border-radius: .03rem;
+			    font-size: .14rem;
+			    background: #F42936;
+			    color: #fff;
+			    border: 1px solid #F42936;
+			}
 		}
 	}
 }

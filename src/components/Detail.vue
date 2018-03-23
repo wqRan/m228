@@ -2,28 +2,30 @@
 	<div>
 		<div class="loginHead">
 			<div class="head-l">
-				<router-link to="/" class="yo-ico">&#xf07d;</router-link>
-		       
+				<!-- <a href="history.back" class="yo-ico">&#xf07d;</a> -->
+				<!-- <router-link to="/" class="yo-ico">&#xf07d;</router-link> -->
+		       <a href="javascript:history.back();" class="yo-ico">&#xf07d;</a>
+
 		    </div>
 	    	<h1 class="head-m">商品简介</h1>
 		</div>
 		<div class="product-pic">
 			<div class="pro-new-left">
-				<img src="http://static.228.cn/upload/2018/03/15/AfterTreatment/1521076870172_l9z4-1.jpg">
+				<img :src="`http://localhost:3000/uploads/${data.showPic}`">
 			</div>
 			<div class="pro-new-right">
 				<h1>
-					<p>日本太鼓 DRUM TAO~舞响</p>
+					<p>{{data.showName}}</p>
 				</h1>
-				<span class="time">2018.07.03 - 2018.07.04</span>
+				<span class="time">{{data.showTime}}</span>
 				<div class="sale">
-					<span class="status">售票中</span>
+					<span class="status">{{data.showStates}}</span>
 					<div class="footer">
 						<a class="bot-askarea">
 							<span></span>
 						</a>
 						<a class="bot-btn">
-							<span>立即购买</span>
+							<span  @click="buy">立即购买</span>
 							<!-- <router-link to="/order"></router-link> -->
 						</a>
 					</div>
@@ -47,14 +49,14 @@
 				<li>
 					<a>
 						<i class="addr"></i>
-						<span>[北京]保利剧院</span>
+						<span>{{data.showLocal}}</span>
 					</a>
 				</li>
 				<li>
 					<a>
 						<i class="price"></i>
 						<span>
-	                      180 - 880元
+	                      {{data.showPrice}}元
 	                    </span>
 					</a>
 				</li>
@@ -90,18 +92,60 @@
 			</a>
 		</div>
 		<navigation></navigation>
+<!-- ......... foot ......... -->
+	<foot-cmpt></foot-cmpt>
+
 	</div>
 	
 </template>
 <script>
 
 import Navigation from './Navigation'
-	export default {
+import FootCmpt from './Foot'
+import axios from 'axios'
 
-  components:{
-  	Navigation
-  	}
+export default {
 
+  	components:{
+	  	Navigation,
+	  	FootCmpt
+  	},
+  	data:() => {
+        return{
+            data:[]
+        }
+    },
+  	mounted(){
+		let count = location.hash.split('/')
+		let i = count.length;
+		let id = count[i-1];
+	axios({
+            url:'/api/newslist/item/'+id
+        })
+        .then((result) => {
+           let data = result.data.data
+           this.data = data
+           //console.log(this.data)
+        })
+
+	},
+	 methods:{       	
+        	buy(){
+        		this.$router.push('/order')
+        		let count = location.hash.split('/')
+				let i = count.length;
+				let id = count[i-1];
+				//console.log(this.id)
+        		console.log(this.data._id)
+        		this.$router.push({
+        			path:'/order',
+					name:'order',
+					query:{
+						id:this.data._id
+					}
+        		})
+        	}
+        }
 }
 </script>
 <style  lang="scss">

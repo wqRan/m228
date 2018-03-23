@@ -11,9 +11,11 @@
 <script>
 import wsCache from 'web-storage-cache'
 import IndexCmpt from './components/Index.vue'
+import store from './vues/store'
 
 export default {
   name: 'App',
+  store,
   components:{
   	IndexCmpt
   }

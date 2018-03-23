@@ -14,9 +14,13 @@
 			<h4 class="hot">热门城市</h4>
 			<ul class="hotCity_list">
 
+
 				<router-link to="/" v-for="(c,i) in hotcitylist" :key="i._id" tag="li" :msg="c">{{c}}</router-link @click="chooseCity" v-model="hotcity">
 
 				
+
+
+				<router-link to="/" v-for="(c,i) in hotcitylist" :key="i._id" tag="li" :msg="c">{{c}}</router-link>
 
 			</ul>
 			<h4 class="more">更多城市</h4>
