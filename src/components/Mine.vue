@@ -36,7 +36,7 @@
 					<li>
 						<div class="user_link_item">
 							<i class="dingdan_icon"></i>
-							<span>我的订单</span>
+							<router-link to="/myorder" style="    color: #646464;">我的订单</router-link>
 						</div>
 						<i class="right_icon"></i>
 					</li>

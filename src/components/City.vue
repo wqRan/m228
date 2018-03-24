@@ -13,27 +13,18 @@
 			</p>
 			<h4 class="hot">热门城市</h4>
 			<ul class="hotCity_list">
+				<li v-for="(c,i) in hotcitylist" :key="i._id" tag="li" :msg="c" @click="chooseCity" v-model="hotcity">{{c}}</li>
 
-				<li v-for="(c,i) in hotcitylist"  @click="chooseCity(c)">{{c}}</li>
-
-				<!-- <router-link to="/" v-for="(c,i) in hotcitylist" :key="i._id" tag="li" @click="chooseCity(c)">{{c}}</router-link> -->
-
-				<!-- <router-link to="/" v-for="(c,i) in hotcitylist" :key="i._id" tag="li" :msg="c">{{c}}</router-link @click="chooseCity" v-model="hotcity"> -->
 			</ul>
 			<h4 class="more">更多城市</h4>
 			<ul class="moreCity_list">
-				<router-link to="/" v-for="(m,i) in morecitylist" :key="i._id" tag="li">{{m}}</router-link>
+				<li v-for="(m,i) in morecitylist" :key="i._id" tag="li"  @click="chooseCity">{{m}}</li>
 			</ul>
 		</div>
 	</div>
 </template>
 <script>
-
-import Vue from 'vue'
-// import CityName from './Cityname'
-
-const bus = new Vue()
-
+import store from '../vues/store'
 	export default {
 		data: ()=>{
 			return {
@@ -41,16 +32,14 @@ const bus = new Vue()
 				morecitylist:['澳门','安庆','宝鸡','本溪','包头','长春','成都','重庆','长沙','常州','德阳','东莞','大连','佛山','抚顺','德州','桂林','贵阳','邯郸','黄冈','呼和浩特','哈尔滨','杭州','金华','澳门','安庆','宝鸡','本溪','包头','长春','成都','重庆','长沙','常州','德阳','东莞','大连','佛山','抚顺','德州','桂林','贵阳','邯郸','黄冈','呼和浩特','哈尔滨','杭州','金华'],
 				hotcity:'',
 			}
-
 		},
-		// methods:{
-		// 	chooseCity:function(c){
-		// 		this.$store.commit('setNav', {
-		// 	      title: '123' 
-		// 	    })
-		// 	}
-		// },
-		// components: { CityName }
+
+		methods:{
+			chooseCity:function(e){
+				this.$store.commit('choosecity',e.target.innerHTML)
+				this.$router.push('/')
+			}
+		}
 		
 	}
 </script>

@@ -37,6 +37,7 @@
     			background: #fff;
     			//height:.68rem;
     			@include flexbox();
+
     			li{
     				position:relative;
     				width: 33.3%;
@@ -44,7 +45,7 @@
 				    font-size: .12rem;
 				   // height:.44rem;
 				    color: #333;
-				    a{
+				    .time_btn{
 				    		
 				    	    border: 1px solid #e0e1e2;
 						    text-decoration: none;
@@ -64,10 +65,19 @@
 						    }
 						   
 				    }
+				    .unselect{
+				    	background:#0f0;
+				    }
 				}
 				.day_info_first{
 					a{
-						@include curr();
+						/* @include curr(); */
+					}
+					.curr{
+					border: #eb414b 1px solid;
+				    background: #eb414b;
+				    color: #fff;
+				    padding: .02rem .07rem;
 					}
 				}
 			}
@@ -113,6 +123,9 @@
 							    height: .44rem;
 							    overflow: hidden;
 							    line-height: .16rem;
+					    }
+					    .price_choose{
+					    	border:1px solid #eb414b;
 					    }
    					 }
 			}

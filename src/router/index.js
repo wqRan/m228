@@ -16,10 +16,13 @@ import Mine from '@/components/Mine'
 import Banner from '@/components/Banner'
 import City from '@/components/City'
 import Detail from '@/components/Detail'
+
 import Search from '@/components/Search'
 import Order from '@/components/Order'
 import Shopcar from '@/components/Shopcar'
 import Collection from '@/components/Collection'
+import MyOrder from '@/components/MyOrder'
+
 
 Vue.use(Router)
 
@@ -79,10 +82,6 @@ export default new Router({
       name: 'mine',
       component: Mine,
       meta:{requiresAuth:true}
-     /* beforeEnter:(to,from,next)=>{
-        console.log(1)
-        next()
-      }*/
     },
      {
       path: '/city',
@@ -103,16 +102,25 @@ export default new Router({
     },      
     {
         path:'/order',
+        name:'order',
         component:Order,
         meta:{requiresAuth:true},
+        props:true
     },
     {
-        path:'/shopcar',
+        path:'/shopcar/:id',
+        name:'shopcar',
         component:Shopcar,
     },
     {
         path:'/collection',
         component:Collection,
+    },
+    {
+      path: '/myorder',
+      name: 'myorder',
+      component: MyOrder,
+      props:true
     }
   ]
 })

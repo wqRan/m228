@@ -126,7 +126,10 @@ export default {
 	  			this.newslist = false
 	  			this.havedate = false
 	  		}
-  		}
+  		},
+  		routrTo(id){
+	        this.$router.push('/detail/'+id)
+	    }
   	}	
 }
 

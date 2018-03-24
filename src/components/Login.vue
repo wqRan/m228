@@ -74,9 +74,9 @@ import axios from 'axios'
 							}
 						})
 						
-						console.log('登录成功',this.username)
+						// console.log('登录成功',this.username)
 					}else{
-						console.log("登录失败")
+						// console.log("登录失败")
 					}
 				})
 			}

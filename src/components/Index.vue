@@ -3,25 +3,20 @@
 <div class="container" ref="top-scroll">
 	<!-- ...... header ...... -->
 	<header>
-		<router-link to="/city"  id="ylCity">{{msg}}</router-link>
-		<!-- <city-name></city-name> -->
-	  <!-- <a id="ylCity" href="javascript:;">全国</a>    -->
-	  <h1>永乐票务</h1>        
+		<a id="ylCity" @click="toCity">{{City.city}}</a>
+	  	<h1>永乐票务</h1>       
 	</header>  
 	<!-- ...... search ...... -->          
 	<div id="js_search" class="sear-comm" style="margin-bottom:.1rem;">
 		<div class="sear-all">			
 			<input type="search" class="sear-inp" name="keyword" autocomplete="off" v-model="content" placeholder="全职高手">
 			<span @click="search" class="fr" ></span>
-			<!-- <router-link to="/search" ></router-link> 				 -->
 		</div>
 	</div>
 	<!-- ....... banner ............ -->
 	
 		  <banner></banner>
 	
-	   
-
 	<!-- ........ nav ....... -->
 	<div class="index-nav index-nav-20">
         <ul class="navBtn">
@@ -73,8 +68,8 @@
 	    </ul>
 	</div>
 	<!-- ......... foot ......... -->
-	<foot-cmpt :isshow="true" :mytop="topscroll"></foot-cmpt>
-	
+
+	<foot-cmpt :isshow="true"></foot-cmpt>	
 
 	<!-- .......fix图标 -->
 
@@ -89,7 +84,7 @@ import Banner from './Banner.vue'
 import FootCmpt from './Foot'
 import cityCmpt from './City'
 import Navigation from './Navigation'
-// import CityName from './Cityname'
+import store from '../vues/store'
 import axios from 'axios'
 import wsCache from 'web-storage-cache'
 
@@ -97,15 +92,10 @@ Vue.use(VueRouter)
 
 
 export default {
-	props: {
-	    msg: {
-	      default:'全国'
-	    }
-	},
 	data: ()=>{
 		return{
 			content:'',
-			topscroll: null
+			scrollTop: 0
 		}
 	},
   	components:{
@@ -129,25 +119,32 @@ export default {
 	        method.tId = setTimeout(function(){
 	          method.call(context);
 	        }, 100);
-	      }
+	    },
+	    toCity(){
+  			this.$router.push('/city')
+  		}
   		
   	},
   	mounted(){
+  		let top = document.getElementById('root')
+  		// top.scrollTop = 100
   		let that = this
-	      this.$refs['top-scroll'].onscroll = function () {
+	    top.onscroll = function() {
 	        that.throttle(() => {
-	          that.scrollTop = this.scrollTop
+	          top.scrollTop = this.scrollTop
 	        }, this)
 	      }
-
-	      this.topscroll = this.$refs['top-scroll']
-
   	},
-  	activated () {
-      this.$refs['top-scroll'].scrollTop = this.scrollTop
-    }
+  	activated(){
+  		console.log(document.getElementById('root').scrollTop)
+      this.scrollTop = document.getElementById('root').scrollTop
+
+    },
+  	computed:{
+		City(){
+			return this.$store.state
+		}
+	}
 
 }
-
-
 </script>

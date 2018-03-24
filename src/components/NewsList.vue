@@ -45,21 +45,15 @@ export default {
             url:'/api/newslist/list/0'
         })
         .then((result) => {
-           let data = result.data.data
-           this.data = data.result
+           let data = result.data.data.result;
+           this.data = data;
+
+           // console.log(this.data)
         })
     },
     methods:{
       routrTo(id){
-        // console.log(id)
-        location.hash = '/detail/'+id
-        // this.$router.replace({
-        //   path:'/detail',
-        //   name:'detail',
-        //   params:{
-        //         dataObj:id
-        //   }
-        // })
+        this.$router.push('/detail/'+id)
       }
     }
   

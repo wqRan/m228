@@ -24,7 +24,9 @@
 	</div>
 	<!-- ......... foot ......... -->
 	<foot-cmpt></foot-cmpt>
-	
+	<!-- .......fix图标 -->
+
+	<navigation></navigation>
 </div>
 </template>
 <script>
@@ -32,11 +34,13 @@
 import FootCmpt from './Foot'
 import Banner from './Banner'
 import axios from 'axios'
+import Navigation from './Navigation'
 
 export default {
   	components:{
   		Banner,
-  		FootCmpt
+  		FootCmpt,
+  		Navigation
   	},
 	data:() => {
         return{

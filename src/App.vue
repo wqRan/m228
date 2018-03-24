@@ -6,14 +6,14 @@
 	</div>	
 </template>
 
-
-
 <script>
 
 import IndexCmpt from './components/Index.vue'
+import store from './vues/store'
 
 export default {
   name: 'App',
+  store,
   components:{
   	IndexCmpt
   }

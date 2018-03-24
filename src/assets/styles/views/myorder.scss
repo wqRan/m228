@@ -1,0 +1,88 @@
+.myorder{
+	width:100%;
+	height:100%;
+	.order-list{
+		height:1.778rem;
+    	background: #fff;
+        font-size: .12rem;
+        margin: .1rem 0rem -0.06rem;
+        border-bottom: #ddd 1px solid;
+        border-top: #ddd 1px solid;
+
+        dt{
+        	@include flexbox();
+        	@include justify-content(space-between);
+
+        	line-height: .32rem;
+    	    padding: 0rem .1rem;
+    	    margin-bottom: .1rem;
+    	    color: #333;
+    	    border-bottom: 1px solid #e5e5e5;
+    	    em{
+    			font-style: normal;
+    		    color: #eb414b;
+    		    font-size: .14rem;
+    	    }
+        }
+        dd{
+        		@include flexbox();
+        	    height: .94rem;
+        		padding: 0rem .1rem .1rem .9rem;
+        		.order-img{
+        			    width: .7rem;
+    				    
+    				    margin-left: -.8rem;
+    				    height: .95rem;
+    				    overflow: hidden;
+    			        text-decoration: none;
+        				color: #333;
+        				img{
+        					    width: 100%;
+       							 height: 100%;
+        				}
+        		}
+        		.order-r{
+        			padding:.1rem;
+        			h1{
+        				height: .25rem;
+    				    font-size: .14rem;
+    				    line-height: .18rem;
+    				    color: #333;
+    				    text-overflow: ellipsis;
+    				    white-space: nowrap;
+    				    overflow: hidden;
+    				    a{
+    				    	color: #333;
+    				    }
+        			}
+        			ul{
+        				li{
+        					overflow: hidden;
+    					    text-overflow: ellipsis;
+    					    white-space: nowrap;
+    					    line-height: .2rem;
+    					    color: #999;
+        				}
+        			}
+        		}
+        }
+    }
+    .btn{
+            padding:.15rem .15rem .3rem .15rem;
+            input{
+                outline: none;
+            }
+            .submit-btn{
+                display: block;
+                width: calc(100% - 2px);
+                height: .38rem;
+                text-align: center;
+                line-height: .38rem;
+                border-radius: .03rem;
+                font-size: .14rem;
+                background: #F42936;
+                color: #fff;
+                border: 1px solid #F42936;
+            }
+        }
+}

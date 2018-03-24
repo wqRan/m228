@@ -6,8 +6,7 @@
 	.titlelist{
 		position:relative;
 		height:.63rem;
-		z-index:4000;
-	
+		z-index:4000;	
 		.titlelist_detail_top{
 			height:100%;
 			@include flexbox();

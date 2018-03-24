@@ -3,8 +3,6 @@
 		<div class="loginHead">
 			<div class="head-l">
 				<a href="javascript:history.back();" class="yo-ico">&#xf07d;</a>
-				<!-- <router-link to="/" class="yo-ico">&#xf07d;</router-link> -->
-		       
 		    </div>
 	    	<h1 class="head-m">商品简介</h1>
 		</div>
@@ -25,9 +23,7 @@
 							<span></span>
 						</a>
 						<a class="bot-btn">
-
-							<span @click="gotobuy">立即购买</span>
-							<!-- <router-link to="/order"></router-link> -->
+							<span  @click="buy">立即购买</span>
 						</a>
 					</div>
 					<span class="icon">
@@ -139,64 +135,73 @@ export default {
            }
            this.data = data
         })
+
 	},
-	methods:{
-		gotobuy(){
-			this.$router.push('/order')
-		},
-
-		changeico(){
-			
-			// console.log(this.save)
-			if ( this.style == 'background-position:0 0' ) {
-				this.style = 'background-position:0 -26px'
-				Toast({
-				  message: '取消收藏:(',
-				  position: 'center',
-				  duration: 2000
-				});
-				
-				let scookie = this.$cookie.get('savedata')
-				let acookie = JSON.parse(scookie).slice(0,-1)
-
-				scookie = JSON.stringify(acookie);
-				this.$cookie.set('savedata',scookie)
-			}else {
-				this.style = 'background-position:0 0'
-				Toast({
-				  message: '收藏成功:)',
-				  position: 'center',
-				  duration: 2000
-				});
-
-				var scookie = this.$cookie.get('savedata')
-				if (scookie) {
-					var acookie = JSON.parse(scookie);
-					var flag = false;
-					var self = this
-					acookie.forEach(function(item){
-						if (item.id != self.save) {
-							flag = true;
-						}
-					})
-					if (flag == true) {
-
-						var item = {
-								id:this.save
-							}
-						acookie.push(item)
-					
+	methods:{       	
+        	buy(){
+        		this.$router.push('/order')
+        		let count = location.hash.split('/')
+				let i = count.length;
+				let id = count[i-1];
+        		this.$router.push({
+        			path:'/order',
+					name:'order',
+					query:{
+						id:this.data._id
 					}
+        		})
+        	},
+
+			changeico(){
+				if ( this.style == 'background-position:0 0' ) {
+					this.style = 'background-position:0 -26px'
+					Toast({
+					  message: '取消收藏:(',
+					  position: 'center',
+					  duration: 2000
+					});
+					
+					let scookie = this.$cookie.get('savedata')
+					let acookie = JSON.parse(scookie).slice(0,-1)
+
 					scookie = JSON.stringify(acookie);
 					this.$cookie.set('savedata',scookie)
 				}else {
+					this.style = 'background-position:0 0'
+					Toast({
+					  message: '收藏成功:)',
+					  position: 'center',
+					  duration: 2000
+					});
 
-					this.$cookie.set('savedata','[{"id":"'+this.save+'"}]')
+					var scookie = this.$cookie.get('savedata')
+					if (scookie) {
+						var acookie = JSON.parse(scookie);
+						var flag = false;
+						var self = this
+						acookie.forEach(function(item){
+							if (item.id != self.save) {
+								flag = true;
+							}
+						})
+						if (flag == true) {
+
+							var item = {
+									id:this.save
+								}
+							acookie.push(item)
+						
+						}
+						scookie = JSON.stringify(acookie);
+						this.$cookie.set('savedata',scookie)
+					}else {
+
+						this.$cookie.set('savedata','[{"id":"'+this.save+'"}]')
+						
+					}
 					
 				}
-				
 			}
-		}
 	}
 }
 </script>

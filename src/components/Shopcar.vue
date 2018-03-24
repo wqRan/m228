@@ -2,27 +2,26 @@
 	<div class="shopcar">
 		<div class="loginHead">
 			<div class="head-l">
-				<a href="javascript:history.back();" class="yo-ico">&#xf07d;</a>
-		       
+				<a href="javascript:history.back();" class="yo-ico">&#xf07d;</a>		       
 		    </div>
 	    	<h1 class="head-m">确认订单</h1>
 	    	
 		</div>
 		<div class="shopcar_container">
 			<div class="order-type">
-					<h3 class="thin">王力宏"龙的传人2060"巡回演唱会</h3>
+					<h3 class="thin">{{list.list.showName}}</h3>
 					<p class="mt5 performance-information" >
 						<span class="db">
 							<label>演出场馆</label>
 							
-								    [北京]凯迪拉克中心
+								    {{list.list.showLocal}}
 						</span>
 						<span class="db">
-							<label>已选场次</label>2018-04-14&nbsp;星期六&nbsp;19:00
+							<label>已选场次</label>{{list.list.showTime}}
 						</span>
 						<span class="db">
-							<label class="fl">已选座位</label>
-							<i class="fl">1280(看台)*1 （共1张）</i>
+							<label class="fl">已选价格</label>
+							<i class="fl">{{list.price}}元*{{list.count}} （共{{list.count}}张）</i>
 					    </span>
 					</p>
 			</div>
@@ -120,7 +119,7 @@
 					<dt class="bg-white border-b-lightOrangeRed p15 f14">订单明细</dt>
 					<dd class="cl">
 						<span class="fl">商品总价</span>
-						<span class="fr">1280.00元</span>
+						<span class="fr">{{list.total}}</span>
 					</dd>
 					<dd class="cl">
 						<span class="fl">现金券</span>
@@ -136,7 +135,7 @@
 					</dd>
 					<dd class="cl">
 						<span class="fl">合计</span>
-						<span class="fr" id="total">1280.00元</span>
+						<span class="fr" id="total">{{list.total}}</span>
 					</dd>
 				</dl>
 			</div>
@@ -154,20 +153,44 @@
 						 	<label class="fl">发票</label>
 							<b class="yes fr" id="invoiceCheck">✓</b>
 						 </h3>
-						 <p class="red pt10  pl10 pr10">温馨提示：请您仔细核对订单信息，因演出票的唯一性、时效性，购买后无法退票或更换。</p>
-
-
 			</div>
+			<p class="tips">温馨提示：请您仔细核对订单信息，因演出票的唯一性、时效性，购买后无法退票或更换。</p>
 			<p class="gray p15">我已阅读并同意 
 				<a class="red" href="javascript:insuranceInfo('//m.228.cn/ajax/insurance.html?type=3','永乐票务用户服务协议')">永乐票务用户服务协议</a>
 				<a class="red" href="javascript:insuranceInfo('//m.228.cn/ajax/insurance.html?type=2','票享无忧退票保险服务条款')" id="bxtk"></a>
 			</p>
 			<div class="btn pb30 pl15 pr15">
 				<input type="hidden" id="sumpayment" value="">
-				<a class="submit-btn" id="submitOrder" href="javascript:;">同意以上协议并支付</a>
+				<a class="submit-btn" id="submitOrder" @click="payment">去购物车结算</a>
 			</div>
 
 
 		</div>
 	</div>
 </template>
+<script>
+import Vue from 'vue'
+import axios from 'axios'
+import store from '../vues/store'
+	export default {
+		data:()=>{
+			return {
+				productList:[]
+			}
+		},
+		mounted(){
+
+			document.getElementById('root').scrollTop = 0 ;   
+		},
+		computed:{			
+			list(){
+				return this.$store.state
+			}
+		},
+		methods:{
+			payment(){
+				this.$router.push('/myorder')
+			}
+		}
+	}
+</script>
